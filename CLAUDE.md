@@ -174,8 +174,8 @@ tools/telegram/ — скрипт публикации в Telegram-группу/�
 
 | Что | Файл |
 | --- | --- |
-| Неделя 2, ОПД — определение проекта и признаки | `opd/OPD_Metodichka_Praktika_1.docx` |
-| Недели 2–4 и 7, ОПДВП — SMART и паспорт проекта | `opdvp/OPDVP_Metodichka_Praktiki_1-2.docx` |
+| **Неделя 2 — «Проект или не проект», обе группы** | `shared/Nedelya_02_Proekt_ili_ne_proekt.docx` |
+| Недели 4 и 7, ОПДВП — SMART и паспорт (хронометраж на 225 мин, требует сжатия до 90) | `opdvp/OPDVP_Metodichka_Praktiki_1-2.docx` |
 | Конспект лекций 1 курса | `opdvp/OPDVP_1kurs_Konspekt.docx` |
 | Разбор РПД 2 курса | `opd/OPD_2kurs_Razbor_RPD.docx` |
 | Карты тем проектов (12 тем, оба курса) | `shared/Karty_tem_proektov.docx` |

@@ -119,6 +119,12 @@ tr:nth-child(even) td { background: var(--light); }
 .roadmap .stop .t { font-weight: 700; margin: .2em 0; }
 .roadmap .stop .r { color: var(--mute); font-size: .9em; }
 .roadmap .stop.here .r { color: #DCE6F0; }
+/* баллы БРС в карточке вехи */
+.roadmap .stop .pts {
+  margin-top: .35em; padding-top: .3em; border-top: 1px solid var(--line);
+  font-weight: 700; color: var(--accent1); font-size: .95em;
+}
+.roadmap .stop.here .pts { color: var(--w); border-top-color: #4A7099; }
 .roadmap .tests {
   margin-top: .4em; background: var(--light); border: 1px solid var(--line);
   border-radius: 8px; padding: .4em .7em; text-align: center; font-size: .75em;

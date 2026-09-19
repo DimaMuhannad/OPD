@@ -125,10 +125,22 @@ tr:nth-child(even) td { background: var(--light); }
   font-weight: 700; color: var(--accent1); font-size: .95em;
 }
 .roadmap .stop.here .pts { color: var(--w); border-top-color: #4A7099; }
-.roadmap .tests {
+.roadmap .tests, .tests {
   margin-top: .4em; background: var(--light); border: 1px solid var(--line);
   border-radius: 8px; padding: .4em .7em; text-align: center; font-size: .75em;
 }
+/* шкала перевода баллов в оценку — под дорожной картой */
+.grades {
+  margin-top: .35em; display: flex; gap: .4em; font-size: .7em;
+}
+.grades div {
+  flex: 1; text-align: center; border: 1px solid var(--line); border-radius: 6px;
+  padding: .3em .2em; background: var(--w);
+}
+.grades div b { display: block; color: var(--accent1); }
+.grades div.fail { background: #FBE9EE; border-color: #E9B8C4; }
+.grades div.fail b { color: var(--accent2); }
+.grades-note { text-align: center; font-size: .7em; color: var(--mute); margin-top: .3em; }
 
 /* СТОП-блок — остановка на совместную работу */
 .stop-work {                                 /* 16 pt */

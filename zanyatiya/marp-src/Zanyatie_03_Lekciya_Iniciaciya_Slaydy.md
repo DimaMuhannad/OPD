@@ -33,6 +33,14 @@ size: 16:9
 </div>
 <div class="tests">Плюс два зачётных теста по 10 баллов: 10.10 — «Инициация», 28.11 — «Планирование и контроль».  Итого 100 баллов за семестр</div>
 
+<div class="grades">
+<div><b>85–100</b>отлично</div>
+<div><b>70–84</b>хорошо</div>
+<div><b>55–69</b>удовлетворительно</div>
+<div class="fail"><b>менее 55</b>не зачтено</div>
+</div>
+<div class="grades-note">Порог зачёта — 55 баллов. Всё, кроме защиты, даёт ровно 50: без защиты зачёта нет</div>
+
 ---
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />

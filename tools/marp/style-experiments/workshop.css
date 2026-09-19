@@ -1,0 +1,45 @@
+/* @theme workshop — воркшоп / фасилитация: крупно, контрастно, дружелюбно,
+   как рабочая сессия дизайн-мышления, не как регламент */
+@import 'default';
+
+section {
+  font-family: Arial, sans-serif; background: #FFFDF9; color: #17202A;
+  font-size: 24px; padding: 52px 64px; line-height: 1.4;
+}
+h1 {
+  font-size: 1.7em; font-weight: 800; color: #0F8C7A; margin: 0 0 .35em;
+  letter-spacing: -.01em;
+}
+.kicker {
+  display: inline-block; background: #0F8C7A; color: #fff; font-size: .42em;
+  letter-spacing: .08em; text-transform: uppercase; font-weight: 700;
+  padding: .3em .7em; border-radius: 999px; margin-bottom: .5em;
+}
+
+table { font-size: .62em; border-collapse: separate; border-spacing: 0 6px; width: 100%; }
+th, td { padding: .5em .7em; text-align: left; vertical-align: top; border: none; }
+th { background: #17202A; color: #fff; font-weight: 800; }
+th:first-child { border-radius: 8px 0 0 8px; }
+th:last-child { border-radius: 0 8px 8px 0; }
+td { background: #FFF3E4; }
+td:first-child { border-radius: 8px 0 0 8px; font-weight: 700; color: #0F8C7A; }
+td:last-child { border-radius: 0 8px 8px 0; }
+
+.card {
+  background: #FFF3E4; border: none; border-radius: 16px; padding: .7em 1em; margin: .5em 0;
+  box-shadow: 0 2px 0 #F2A65A;
+}
+.card.dark { background: #17202A; color: #fff; box-shadow: 0 2px 0 #0F8C7A; }
+.card b { color: #E8683C; }
+.card.dark b { color: #6BE3CF; }
+
+.note { color: #17202A; font-size: .55em; margin-top: .5em; font-weight: 700; }
+.note::before { content: "👉 "; }
+
+.contour th { background: #17202A; border-radius: 0; }
+.contour th:first-child, .contour th:last-child { border-radius: 0; }
+.contour td { background: #fff; border: 2px dashed #F2A65A; border-radius: 0; }
+.contour td:first-child, .contour td:last-child { border-radius: 0; }
+
+.stop-work { background: #E8683C; color: #fff; font-weight: 800; padding: .5em .9em;
+             border-radius: 12px; font-size: .55em; }

@@ -1,0 +1,42 @@
+/* @theme academic — академический / грантовый стиль: чёрно-белый, серифный,
+   заголовок-вывод, минимум цвета, разбор аргументом, как научная заявка */
+@import 'default';
+
+section {
+  font-family: Georgia, "Liberation Serif", "Times New Roman", serif;
+  background: #FFFFFF; color: #111111; font-size: 22px;
+  padding: 50px 64px; line-height: 1.45;
+}
+h1 {
+  font-family: Georgia, serif; font-weight: 400; font-style: normal;
+  font-size: 1.35em; color: #111; border-bottom: 1.5px solid #111;
+  padding-bottom: .25em; margin: 0 0 .5em;
+}
+.kicker {
+  font-family: Arial, sans-serif; color: #666; font-size: .42em;
+  letter-spacing: .18em; text-transform: uppercase; margin-bottom: .6em;
+}
+p { margin: .5em 0; }
+p em, p i { color: #333; }
+
+table { font-size: .58em; border-collapse: collapse; width: 100%; margin: .8em 0; }
+th, td { padding: .5em .6em; text-align: left; vertical-align: top; border: none; }
+th { border-bottom: 1.5px solid #111; font-weight: 700; font-family: Arial, sans-serif;
+     font-size: .95em; text-transform: uppercase; letter-spacing: .03em; }
+td { border-bottom: .5px solid #ccc; }
+tr:nth-child(even) td { background: none; }
+
+.note { font-family: Arial, sans-serif; color: #666; font-size: .5em; font-style: italic; margin-top: .6em; }
+.note::before { content: "Примечание. "; font-weight: 700; }
+
+.card {
+  border: none; border-left: 3px solid #7A1F2B; background: none;
+  padding: .3em 0 .3em 1em; margin: .8em 0; border-radius: 0;
+}
+.card.dark { background: none; color: #111; border-left-color: #7A1F2B; }
+.card b { color: #7A1F2B; font-family: Arial, sans-serif; font-size: .85em; text-transform: uppercase; letter-spacing: .05em; }
+
+.contour th { background: none; border-bottom: 1.5px solid #111; color: #111; }
+.contour td { border: .5px solid #ccc; }
+
+.stop-work { background: #111; color: #fff; font-family: Arial, sans-serif; padding: .5em .8em; font-size: .55em; letter-spacing: .02em; }

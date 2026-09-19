@@ -1,0 +1,44 @@
+/* @theme engineering — инженерный / протокольный: моноширинная нумерация,
+   промышленная серая палитра, один сигнальный цвет, как техническая спецификация */
+@import 'default';
+
+section {
+  font-family: Arial, sans-serif; background: #F7F7F5; color: #1A1A1A;
+  font-size: 22px; padding: 46px 58px; line-height: 1.35;
+  background-image: linear-gradient(#00000008 1px, transparent 1px),
+                     linear-gradient(90deg, #00000008 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+h1 {
+  font-family: "Courier New", monospace; font-weight: 700; font-size: 1.2em;
+  color: #1A1A1A; margin: 0 0 .5em; text-transform: uppercase; letter-spacing: .01em;
+}
+h1::before { content: "§ "; color: #C6631E; }
+.kicker {
+  font-family: "Courier New", monospace; color: #C6631E; font-size: .48em;
+  letter-spacing: .08em; margin-bottom: .3em; font-weight: 700;
+}
+.kicker::before { content: "// "; }
+
+table { font-size: .58em; border-collapse: collapse; width: 100%; margin: .5em 0;
+        background: #fff; }
+th, td { border: 1px solid #999; padding: .4em .55em; text-align: left; vertical-align: top; }
+th { background: #1A1A1A; color: #fff; font-family: "Courier New", monospace; font-weight: 700; }
+td { font-family: Arial, sans-serif; }
+tr:nth-child(even) td { background: #EFEFEA; }
+
+.card {
+  background: #fff; border: 1.5px dashed #999; padding: .5em .8em; margin: .5em 0;
+}
+.card.dark { background: #1A1A1A; color: #fff; border: 1.5px dashed #C6631E; }
+.card b { font-family: "Courier New", monospace; color: #C6631E; }
+.card.dark b { color: #C6631E; }
+
+.note { font-family: "Courier New", monospace; color: #666; font-size: .48em; margin-top: .4em; }
+.note::before { content: "NOTE> "; }
+
+.contour th { background: #1A1A1A; font-family: "Courier New", monospace; }
+.contour td:empty { background: repeating-linear-gradient(45deg, #fff, #fff 6px, #f0f0ea 6px, #f0f0ea 7px); }
+
+.stop-work { background: #C6631E; color: #1A1A1A; font-family: "Courier New", monospace;
+             font-weight: 700; padding: .45em .8em; font-size: .5em; }

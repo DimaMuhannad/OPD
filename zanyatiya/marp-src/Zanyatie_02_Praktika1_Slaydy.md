@@ -8,6 +8,8 @@ size: 16:9
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
+<img src="../../tools/marp/guap-brand/guap-logo-full.png" style="height:60px; position:absolute; top:28px; left:44px;" />
+
 # ПРАКТИКА 1
 
 ## От двух концептов к SMART-цели
@@ -21,6 +23,8 @@ size: 16:9
 -->
 
 ---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
 <div class="kicker">СТАРТ ОТ ДОМАШНЕГО ЗАДАНИЯ</div>
 
@@ -57,9 +61,23 @@ size: 16:9
 
 ---
 
-<div class="kicker">НОВЫЙ ИНСТРУМЕНТ</div>
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
+<div class="kicker">ОПРЕДЕЛЕНИЕ</div>
 
 # Ценностное предложение
+
+<div class="card dark">Ценностное предложение (value proposition) — проверяемое утверждение о том, какую конкретную выгоду и для какой конкретно очерченной группы потребителей создаёт результат проекта, и чем предлагаемый способ решения превосходит способ, которым эта задача решается в его отсутствие.</div>
+
+*Источник: А. Остервальдер, И. Пинье, «Business Model Generation» (2010) — «Value Proposition Design» (2014).*
+
+---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
+<div class="kicker">НОВЫЙ ИНСТРУМЕНТ</div>
+
+# Четыре элемента формулы
 
 | # | Часть формулы | Вопрос |
 |---|---|---|
@@ -71,6 +89,8 @@ size: 16:9
 <div class="note">Проверка: если «для кого» можно заменить на кого угодно — предложение не написано.</div>
 
 ---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
 <div class="kicker">ПРИМЕР ОТ ПРЕПОДАВАТЕЛЯ · ЗАПОЛНЯЕМ ВМЕСТЕ</div>
 
@@ -96,6 +116,8 @@ size: 16:9
 
 ---
 
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <div class="kicker">ЛИСТ 1 · 15 МИНУТ</div>
 
 # Заполните формулу для ОБОИХ концептов
@@ -110,6 +132,8 @@ size: 16:9
 <div class="note">На каждое «удобнее»/«лучше» спрашивать «насколько, в цифрах».</div>
 
 ---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
 <div class="kicker">ВЫБОР · ЧАСТЬ 1</div>
 
@@ -126,6 +150,8 @@ size: 16:9
 
 ---
 
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <div class="kicker">ВЫБОР · ЧАСТЬ 2</div>
 
 # Как ставить баллы: шкала 0–2
@@ -140,6 +166,8 @@ size: 16:9
 
 ---
 
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <!-- _class: dark -->
 
 <div class="kicker">ИНСТРУМЕНТ ФОРМУЛИРОВКИ ЦЕЛИ</div>
@@ -148,7 +176,7 @@ size: 16:9
 
 ### Specific · Measurable · Achievable · Relevant · Time-bound
 
-Международный термин: встретится в заявках на гранты, в техзаданиях и в резюме.
+*Источник: Дж. Т. Доран, «There's a S.M.A.R.T. way to write management's goals and objectives», Management Review, 1981.* Международный термин: встретится в заявках на гранты, в техзаданиях и в резюме.
 
 <div class="card tint">
 
@@ -159,6 +187,8 @@ size: 16:9
 </div>
 
 ---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
 <div class="kicker">ИНСТРУМЕНТ, НЕ ПОВТОР</div>
 
@@ -175,6 +205,8 @@ size: 16:9
 <div class="note">Оба столбца про одно и то же. Пишем SMART, вспоминаем по ЧИСТО.</div>
 
 ---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
 <div class="kicker">РАЗБОР НА ДОСКЕ</div>
 
@@ -199,6 +231,8 @@ size: 16:9
 
 ---
 
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <div class="kicker">ОБРАЗЕЦ · ТАК ЭТО ВЫГЛЯДИТ ЦЕЛИКОМ</div>
 
 # Развёрнутая SMART-цель: умный горшок
@@ -219,6 +253,8 @@ size: 16:9
 
 ---
 
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <div class="kicker">ЛИСТ 2 · 20 МИНУТ</div>
 
 # Разверните свою SMART-цель
@@ -235,6 +271,8 @@ size: 16:9
 
 ---
 
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <div class="kicker">10 МИНУТ</div>
 
 # Соседняя команда ищет слабое место
@@ -248,6 +286,8 @@ size: 16:9
 -->
 
 ---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
 <div class="kicker">К ПРАКТИКЕ 2 · 19 СЕНТЯБРЯ</div>
 

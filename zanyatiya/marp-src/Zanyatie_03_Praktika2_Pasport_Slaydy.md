@@ -8,6 +8,8 @@ size: 16:9
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
+<img src="../../tools/marp/guap-brand/guap-logo-full.png" style="height:60px; position:absolute; top:28px; left:44px;" />
+
 # ЗАНЯТИЕ 3 · ВТОРАЯ ПОЛОВИНА · ПРАКТИКА 2
 
 ## Паспорт проекта
@@ -19,6 +21,8 @@ size: 16:9
 <!-- Сказать, что это шаг 7 из восьми с первой половины. Восьмой — 26.09. -->
 
 ---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
 <div class="roadmap-bar">До фиксации темы — 7 дней · до чекпоинта 21.11 — 9 недель · до защиты 26.12 — 14 недель</div>
 
@@ -32,11 +36,23 @@ size: 16:9
 
 ---
 
-<div class="kicker">ИНСТРУМЕНТ</div>
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Паспорт проекта: зачем он нужен
+<div class="kicker">ОПРЕДЕЛЕНИЕ</div>
 
-*Документ, фиксирующий договорённости о проекте до начала работы: зачем, что именно, кем, к какому сроку, по какому признаку успешен. В PMBOK — project charter.*
+# Паспорт проекта
+
+<div class="card dark">Устав проекта (project charter) — документ, изданный инициатором или спонсором проекта, официально авторизующий существование проекта и предоставляющий руководителю проекта полномочия использовать ресурсы организации для выполнения предусмотренных проектом операций.</div>
+
+*Источник: PMBOK Guide, Project Management Institute — определение процесса «Разработка устава проекта», группа процессов инициации. В курсе — «паспорт проекта», тот же документ на учебном материале.*
+
+---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
+<div class="kicker">ЗАЧЕМ ОН НУЖЕН</div>
+
+# Три функции паспорта
 
 - **Фиксация** — то, о чём договорились устно, перестаёт плыть
 - **Право начать** — подписанный паспорт и есть решение go, восьмой шаг инициации
@@ -45,6 +61,8 @@ size: 16:9
 <div class="card dark">Паспорт пишется до работы, а не после. Задним числом он не фиксирует ничего.</div>
 
 ---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
 <div class="kicker">ИЗ ЧЕГО СОСТОИТ</div>
 
@@ -65,6 +83,8 @@ size: 16:9
 
 ---
 
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <div class="kicker">ХОРОШАЯ НОВОСТЬ</div>
 
 # Половина паспорта уже написана
@@ -78,11 +98,13 @@ size: 16:9
 
 ---
 
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <div class="kicker">НОВОЕ 1 · ЗАПОЛНЯЕМ ВМЕСТЕ</div>
 
 # Результат — это не цель
 
-*Цель говорит, как будет. Результат — предмет или документ, который кладётся на стол. Проверка: результат можно передать.*
+*Цель говорит, как будет. Результат (deliverable) — предмет или документ, который кладётся на стол. Проверка: результат можно передать.*
 
 <table class="contour">
 <tr><th>Что предъявляем</th><th>К 21.11</th><th>К 26.12</th></tr>
@@ -95,11 +117,13 @@ size: 16:9
 
 ---
 
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <div class="kicker">НОВОЕ 2 · ЗАПОЛНЯЕМ ВМЕСТЕ</div>
 
 # Границы: чего вы делать НЕ будете
 
-*Без записанных границ проект растёт сам по себе. Граница — это защита команды, а не отговорка.*
+*Без записанных границ содержание проекта расширяется бесконтрольно — явление, известное как расползание содержания (scope creep). Граница — это защита команды, а не отговорка.*
 
 <table class="contour">
 <tr><th>Тип границы</th><th>Формулировка — пишется как отказ</th></tr>
@@ -111,6 +135,8 @@ size: 16:9
 <div class="stop-work">■ СТОП · 2 МИНУТЫ — три строки на доске</div>
 
 ---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
 <div class="kicker">НОВОЕ 3</div>
 
@@ -128,6 +154,8 @@ size: 16:9
 
 ---
 
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <div class="kicker">НОВОЕ 4</div>
 
 # Критерии успеха — не то же, что цель
@@ -144,6 +172,8 @@ size: 16:9
 
 ---
 
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <div class="kicker">БЛАНК · 15 МИНУТ</div>
 
 # Заполните паспорт проекта
@@ -156,6 +186,8 @@ size: 16:9
 
 ---
 
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <div class="kicker">ОБМЕН · 5 МИНУТ</div>
 
 # Соседняя команда задаёт три вопроса
@@ -167,6 +199,8 @@ size: 16:9
 <div class="stop-work">■ СТОП · 5 МИНУТ — обмен паспортами, ответы на полях</div>
 
 ---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
 <div class="kicker">К 26 СЕНТЯБРЯ</div>
 

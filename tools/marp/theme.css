@@ -1,52 +1,77 @@
 /* @theme opd
-   Общая тема курса ОПД/ОПДВП, ГУАП Кафедра №3.
-   Палитра: BLUE #005AAA, DEEP #1E4270, ACC #9E4257,
-            INK #1E293B, MUTE #64748B, LIGHT #F5F7FA, LINE #D8DEE6 */
+   Тема курса ОПД/ОПДВП, ГУАП Кафедра №3.
+   Палитра и типографика — из официального фирменного шаблона ГУАП
+   (guap_16-9_2023_1.pptx, «Палитра ГУАП»), см. tools/marp/guap-brand/BRAND.md.
+   Курсовая адаптация: чуть крупнее кегль под проекцию в аудитории и
+   несколько служебных классов (контурные таблицы, чёрные плашки-остановки,
+   дорожная карта), которых в официальном шаблоне нет — это надстройка
+   курса, а не отступление от палитры/шрифта. */
 @import 'default';
 
 :root {
-  --blue:  #005AAA;
-  --deep:  #1E4270;
-  --acc:   #9E4257;
-  --ink:   #1E293B;
-  --mute:  #64748B;
-  --light: #F5F7FA;
-  --line:  #D8DEE6;
-  --w:     #FFFFFF;
+  /* Палитра ГУАП — официальные HEX, ничего не придумано */
+  --dk1:    #242834; /* тёмный 1 — фон тёмных слайдов */
+  --dk2:    #002C5F; /* тёмный 2 — основной текст на светлых слайдах */
+  --accent1:#005AAA; /* заголовки, термины, акцент таблиц */
+  --accent2:#E70F47; /* вторичный акцент — точечно */
+  --accent3:#00BEF3;
+  --accent4:#9269C9;
+  --accent5:#FF6418;
+  --accent6:#009A49;
+  --w:      #FFFFFF;
+  --line:   #C9D3DE; /* технический — границы таблиц, в палитре ГУАП не задан отдельно */
+  --light:  #F4F7FA; /* технический — подложка карточек, светлее lt1 */
+
+  /* курсовые синонимы (используются в исходниках *.md) */
+  --blue: var(--accent1);
+  --deep: var(--dk2);
+  --acc:  var(--accent2);
+  --ink:  var(--dk2);
+  --mute: #5B6B7D;
 }
 
 section {
-  font-family: Arial, "Helvetica Neue", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: var(--w);
-  color: var(--ink);
+  color: var(--dk2);
   font-size: 22px;
   padding: 42px 52px;
   line-height: 1.35;
 }
 section.lead, section.dark {
-  background: var(--deep);
+  background: var(--dk2);
   color: var(--w);
 }
 section.lead h1, section.lead h2,
 section.dark h1, section.dark h2 { color: var(--w); }
 
-h1 { color: var(--blue); font-size: 1.5em; margin: 0 0 .25em; }
-h2 { color: var(--ink); font-size: 1.05em; margin: .6em 0 .3em; }
-h3 { color: var(--acc); font-size: .9em; margin: .5em 0 .2em; }
+/* заголовок контентного слайда — 24pt bold accent1 по шаблону ГУАП,
+   у нас крупнее ради проекции, цвет и начертание — как в шаблоне */
+h1 { color: var(--accent1); font-weight: 700; font-size: 1.5em; margin: 0 0 .25em; }
+h2 { color: var(--dk2); font-size: 1.05em; margin: .6em 0 .3em; }
+h3 { color: var(--accent2); font-size: .9em; margin: .5em 0 .2em; }
 
 .kicker {
   color: var(--mute); font-size: .5em; letter-spacing: .12em;
   text-transform: uppercase; margin-bottom: .3em; font-weight: 700;
 }
-section.dark .kicker { color: #B9CBDE; }
+section.dark .kicker { color: #AFC6DE; }
+
+/* фирменный логотип — компактный на всех слайдах, кроме титульного,
+   верхний правый угол, как в slideMaster2 официального шаблона */
+.guap-logo {
+  position: absolute; top: 20px; right: 28px; height: 26px; opacity: .92;
+}
 
 p { margin: .35em 0; }
 ul, ol { margin: .3em 0; padding-left: 1.1em; }
 li { margin: .2em 0; }
 
-table { font-size: .62em; border-collapse: collapse; width: 100%; margin: .4em 0; }
+/* таблицы — кегль 14±2 по шаблону (здесь крупнее для проекции),
+   шапка заливкой accent1 как «выделение содержимого» по правилу ГУАП */
+table { font-size: .6em; border-collapse: collapse; width: 100%; margin: .4em 0; }
 th, td { border: 1px solid var(--line); padding: .35em .5em; text-align: left; vertical-align: top; }
-th { background: var(--deep); color: var(--w); font-weight: 700; }
+th { background: var(--accent1); color: var(--w); font-weight: 700; }
 tr:nth-child(even) td { background: var(--light); }
 
 /* карточка-блок: светлая или тёмная плашка с текстом */
@@ -54,15 +79,13 @@ tr:nth-child(even) td { background: var(--light); }
   background: var(--light); border: 1px solid var(--line); border-radius: 8px;
   padding: .5em .8em; margin: .4em 0;
 }
-.card.dark { background: var(--deep); color: var(--w); border-color: var(--deep); }
-.card b { color: var(--blue); }
+.card.dark { background: var(--dk2); color: var(--w); border-color: var(--dk2); }
+.card b { color: var(--accent1); }
 .card.dark b { color: var(--w); }
-/* акцентные варианты карточки на тёмном слайде — светлее/темнее фона секции,
-   чтобы граница между блоком и слайдом была видна (inline style="" вырезается Marp) */
-.card.tint  { background: #2C567F; border-color: #2C567F; color: var(--w); }
+.card.tint  { background: #123A6E; border-color: #123A6E; color: var(--w); }
 .card.tint b { color: var(--w); }
-.card.go    { background: #2C567F; border-color: #2C567F; color: var(--w); }
-.card.nogo  { background: #7A3244; border-color: #7A3244; color: var(--w); }
+.card.go    { background: #123A6E; border-color: #123A6E; color: var(--w); }
+.card.nogo  { background: #7A0F2B; border-color: #7A0F2B; color: var(--w); }
 .card.go b, .card.nogo b { color: var(--w); }
 
 .note {
@@ -72,11 +95,11 @@ tr:nth-child(even) td { background: var(--light); }
 
 /* контурная таблица: пустые клетки для заполнения на доске */
 .contour td:empty::after { content: "\00a0"; }
-.contour th { background: var(--deep); }
+.contour th { background: var(--accent1); }
 
 /* дорожная карта: горизонтальные вехи */
 .roadmap-bar {
-  background: var(--deep); color: var(--w); border-radius: 8px;
+  background: var(--dk2); color: var(--w); border-radius: 8px;
   padding: .5em .8em; font-weight: 700; font-size: .6em; text-align: center; margin-bottom: .5em;
 }
 .roadmap { display: flex; gap: .5em; margin-top: .3em; }
@@ -84,8 +107,8 @@ tr:nth-child(even) td { background: var(--light); }
   flex: 1; border-radius: 8px; padding: .5em .6em; text-align: center;
   background: var(--light); border: 1px solid var(--line); font-size: .55em;
 }
-.roadmap .stop.here { background: var(--deep); color: var(--w); border-color: var(--deep); }
-.roadmap .stop .d { font-size: 1.25em; font-weight: 700; color: var(--blue); }
+.roadmap .stop.here { background: var(--dk2); color: var(--w); border-color: var(--dk2); }
+.roadmap .stop .d { font-size: 1.25em; font-weight: 700; color: var(--accent1); }
 .roadmap .stop.here .d { color: var(--w); }
 .roadmap .stop .t { font-weight: 700; margin: .2em 0; }
 .roadmap .stop .r { color: var(--mute); font-size: .9em; }
@@ -97,11 +120,15 @@ tr:nth-child(even) td { background: var(--light); }
 
 /* СТОП-блок — остановка на совместную работу */
 .stop-work {
-  background: #000; color: #fff; border-radius: 6px; padding: .4em .7em;
+  background: var(--dk1); color: #fff; border-radius: 6px; padding: .4em .7em;
   font-weight: 700; font-size: .6em; margin: .4em 0;
 }
 
-footer { color: var(--mute); font-size: .45em; }
-section::after { /* номер слайда, marp default pagination var */
-  color: var(--mute); font-size: .5em;
+/* фирменная обрезка изображений ГУАП: один угол скруглён, другой срезан */
+.guap-crop {
+  clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%, 0 14%);
+  border-radius: 0 18px 0 0;
 }
+
+footer { color: var(--mute); font-size: .45em; }
+section::after { color: var(--mute); font-size: .5em; }

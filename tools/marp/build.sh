@@ -12,12 +12,12 @@ export CHROME_PATH=/opt/pw-browsers/chromium-1194/chrome-linux/chrome
 
 npx --yes @marp-team/marp-cli@4.5.1 "$SRC" \
   --theme tools/marp/theme.css \
-  --pptx --allow-local-files \
+  --pptx --allow-local-files --no-stdin \
   -o "$OUTDIR/$BASE.pptx"
 
 npx --yes @marp-team/marp-cli@4.5.1 "$SRC" \
   --theme tools/marp/theme.css \
-  --images png --allow-local-files \
+  --images png --allow-local-files --no-stdin \
   -o "$QADIR/slide.png"
 
 echo "PPTX: $OUTDIR/$BASE.pptx"

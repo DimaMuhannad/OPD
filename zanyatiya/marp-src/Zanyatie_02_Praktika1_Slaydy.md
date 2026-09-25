@@ -8,7 +8,7 @@ size: 16:9
 <!-- _class: lead -->
 <!-- _paginate: false -->
 
-<img src="../../tools/marp/guap-brand/guap-logo-full.png" style="height:60px; position:absolute; top:28px; left:44px;" />
+<img src="../../tools/marp/guap-brand/guap-logo-full.png" class="guap-logo-full" />
 
 # ПРАКТИКА 1
 

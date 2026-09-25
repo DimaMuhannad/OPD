@@ -14,10 +14,12 @@ telegram_publish.py
 
 КОМАНДЫ
     updates                              — группы и темы из getUpdates
-    publish <папка> [--group G] [--send] [--no-files]
+    publish <папка> [--group G] [--send] [--no-files] [--force]
                                          — комплект постов (по умолчанию только
                                            показать, что будет отправлено;
-                                           --no-files — без вложений .files)
+                                           --no-files — без вложений .files;
+                                           уже опубликованное по sent_log.jsonl
+                                           пропускается, --force — повторить)
     test <группа> <тема> [текст]         — тестовое сообщение, печатает message_id
     delete <группа> <message_id>         — удалить сообщение
 
@@ -27,9 +29,13 @@ telegram_publish.py
 КОМПЛЕКТ ПОСТОВ — папка с файлами <N>_<тема>.txt (порядок — по N).
 Рядом может лежать <N>_<тема>.files — список приложений, по пути от корня
 репозитория на строку; они уходят вслед за текстом в ту же тему.
+С вложениями пост уходит одним альбомом, текст — подпись под последним
+файлом (до 1024 символов).
+В тексте [слово](#тема) — ссылка на пост этого комплекта в другой теме
+(тот пост должен идти раньше по номеру).
 «Объявления» отправляются последними: строка-плейсхолдер вида
-«[после публикации вставить сюда ссылки …]» заменяется ссылками на уже
-отправленные сообщения этого комплекта.
+«[после публикации вставить сюда ссылки …]» заменяется строками-ссылками
+на уже отправленные сообщения этого комплекта.
 
 Требуется: pip install requests
 """
@@ -60,6 +66,7 @@ TOPIC_TITLES = {
     "domashnee_zadanie": "Домашнее задание",
     "literatura": "Литература",
 }
+INLINE_LINK_RE = re.compile(r"\[([^\]\n]+)\]\(#(\w+)\)")
 PLACEHOLDER_RE = re.compile(r"^\[после публикации вставить[^\]]*\]\s*$", re.M)
 
 
@@ -84,22 +91,30 @@ def send_message(text: str, chat_id: str = None, thread_id=None,
 
 
 def send_document(file_path: str, caption: str = "", chat_id: str = None,
-                  thread_id=None):
+                  thread_id=None, parse_mode: str = None):
     """Отправить файл (docx, pdf, pptx и т.д.), например методичку."""
+    payload = {"chat_id": chat_id or CHAT_ID, "caption": caption}
+    if parse_mode:
+        payload["parse_mode"] = parse_mode
     with open(file_path, "rb") as f:
-        return _call("sendDocument",
-                     data=_thread({"chat_id": chat_id or CHAT_ID,
-                                   "caption": caption}, thread_id),
+        return _call("sendDocument", data=_thread(payload, thread_id),
                      files={"document": f})
 
 
-def send_documents(file_paths: list, chat_id: str = None, thread_id=None):
-    """Отправить 2–10 файлов одним альбомом (sendMediaGroup)."""
+def send_documents(file_paths: list, caption: str = "", chat_id: str = None,
+                   thread_id=None, parse_mode: str = "HTML"):
+    """Отправить 1–10 файлов одним альбомом (sendMediaGroup).
+    Подпись ставится под последним файлом — так она видна под всем альбомом."""
     if len(file_paths) == 1:
-        return send_document(file_paths[0], chat_id=chat_id, thread_id=thread_id)
+        return send_document(file_paths[0], caption=caption, chat_id=chat_id,
+                             thread_id=thread_id, parse_mode=parse_mode)
     handles = {f"f{i}": open(p, "rb") for i, p in enumerate(file_paths)}
     try:
         media = [{"type": "document", "media": f"attach://{k}"} for k in handles]
+        if caption:
+            media[-1]["caption"] = caption
+            if parse_mode:
+                media[-1]["parse_mode"] = parse_mode
         return _call("sendMediaGroup",
                      data=_thread({"chat_id": chat_id or CHAT_ID,
                                    "media": json.dumps(media)}, thread_id),
@@ -252,16 +267,42 @@ def load_kit(folder: Path) -> list:
             + [x for x in posts if x[1] == ANNOUNCE_TOPIC])
 
 
-def render(text: str, links: list) -> str:
-    """Текст поста → HTML; плейсхолдер заменяется списком ссылок."""
+def render(text: str, links: dict, announce: bool = False) -> str:
+    """Текст поста → HTML.
+    [текст](#тема) — ссылка на уже отправленный пост этого комплекта в теме;
+    в «Объявлениях» плейсхолдер заменяется строками-ссылками на все посты."""
     body = html.escape(text, quote=False)
-    link_block = "\n".join(f'→ <a href="{url}">{html.escape(title)}</a>'
-                           for title, url in links)
-    return PLACEHOLDER_RE.sub(lambda _: link_block, body) if links else body
+
+    def inline(m):
+        if m[2] not in links:
+            sys.exit(f"Ссылка на «{m[2]}»: такой пост в комплекте ещё не отправлен "
+                     f"(он должен идти раньше по номеру)")
+        return f'<a href="{links[m[2]]}">{m[1]}</a>'
+
+    body = INLINE_LINK_RE.sub(inline, body)
+    if announce and links:
+        block = "\n".join(f'<a href="{url}">{html.escape(TOPIC_TITLES[t])}</a>'
+                          for t, url in links.items())
+        body = PLACEHOLDER_RE.sub(lambda _: block, body)
+    return body
+
+
+def already_published(kit: str, group_key: str) -> bool:
+    if not SENT_LOG.exists():
+        return False
+    for line in SENT_LOG.read_text(encoding="utf-8").splitlines():
+        rec = json.loads(line) if line.strip() else {}
+        if rec.get("kit") == kit and rec.get("group") == group_key:
+            return True
+    return False
 
 
 def publish_kit(folder: Path, group_key: str, group: dict, send: bool,
-                with_files: bool = True):
+                with_files: bool = True, force: bool = False):
+    if send and not force and already_published(folder.name, group_key):
+        print(f"\n══ {folder.name} → {group_key}: уже опубликован (см. {SENT_LOG.name}), "
+              f"пропускаю. Повторить — флаг --force.")
+        return
     posts = load_kit(folder)
     if not with_files:
         posts = [(n, t, x, []) for n, t, x, _ in posts]
@@ -271,13 +312,15 @@ def publish_kit(folder: Path, group_key: str, group: dict, send: bool,
             sys.exit(f"В groups.json для {group_key} нет темы «{topic}»")
         if send and (chat_id is None or topic_ids[topic] is None):
             sys.exit(f"В groups.json для {group_key} не заполнены ID (группа/тема «{topic}»)")
-    links, log = [], []
+    links, log = {}, []
     print(f"\n══ {folder.name} → {group_key} ({chat_id}) "
           f"{'ОТПРАВКА' if send else '— пробный прогон, ничего не отправляется'}")
     for num, topic, text, files in posts:
         tid = topic_ids[topic]
         is_announce = topic == ANNOUNCE_TOPIC
-        body = render(text, links if is_announce else [])
+        body = render(text, links, announce=is_announce)
+        if files and len(body) > 1024:
+            sys.exit(f"Пост {num}: подпись к файлам длиннее 1024 символов")
         print(f"\n── {num}. {TOPIC_TITLES[topic]} (тема {tid})")
         print(body)
         for f in files:
@@ -285,25 +328,27 @@ def publish_kit(folder: Path, group_key: str, group: dict, send: bool,
         if is_announce and PLACEHOLDER_RE.search(text) is None and links:
             print("   (плейсхолдера для ссылок нет — ссылки не подставлены)")
         if not send:
-            links.append((TOPIC_TITLES[topic], message_link(chat_id, tid, "…")))
+            links[topic] = message_link(chat_id, tid, "…")
             continue
-        res = send_message(body, chat_id=chat_id, thread_id=tid,
-                           link_preview=not is_announce)
+        # С вложениями пост — один альбом, текст — подпись под последним файлом
+        if files:
+            res = send_documents([str(f) for f in files], caption=body,
+                                 chat_id=chat_id, thread_id=tid)
+        else:
+            res = send_message(body, chat_id=chat_id, thread_id=tid,
+                               link_preview=not is_announce)
         if not res:
             sys.exit(f"Остановлено на посте {num} — уже отправленное см. в {SENT_LOG.name}")
-        mid = res["result"]["message_id"]
+        sent = res["result"] if isinstance(res["result"], list) else [res["result"]]
+        mid = sent[-1]["message_id"]
         url = message_link(chat_id, tid, mid)
-        log.append({"kit": folder.name, "group": group_key, "topic": topic,
-                    "message_id": mid, "url": url})
-        if files:
-            fres = send_documents([str(f) for f in files], chat_id=chat_id, thread_id=tid)
-            if not fres:
-                sys.exit(f"Файлы к посту {num} не отправлены — текст уже в группе: {url}")
-            r = fres["result"]
-            for m in (r if isinstance(r, list) else [r]):
-                log.append({"kit": folder.name, "group": group_key, "topic": topic,
-                            "message_id": m["message_id"], "attachment": True})
-        links.append((TOPIC_TITLES[topic], url))
+        for m in sent:
+            rec = {"kit": folder.name, "group": group_key, "topic": topic,
+                   "message_id": m["message_id"]}
+            if m["message_id"] == mid:
+                rec["url"] = url
+            log.append(rec)
+        links[topic] = url
         print(f"   ✔ {url}")
         with SENT_LOG.open("a", encoding="utf-8") as fh:
             for rec in log:
@@ -327,7 +372,8 @@ def main(argv):
         groups = load_groups()
         for key in pick_groups(groups, group):
             publish_kit(folder, key, groups[key], send="--send" in args,
-                        with_files="--no-files" not in args)
+                        with_files="--no-files" not in args,
+                        force="--force" in args)
     elif cmd == "test":
         if len(args) < 2:
             sys.exit("test <группа> <тема> [текст]")

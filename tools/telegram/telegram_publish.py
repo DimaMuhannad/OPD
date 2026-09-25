@@ -14,8 +14,10 @@ telegram_publish.py
 
 КОМАНДЫ
     updates                              — группы и темы из getUpdates
-    publish <папка> [--group G] [--send] — комплект постов (по умолчанию
-                                           только показать, что будет отправлено)
+    publish <папка> [--group G] [--send] [--no-files]
+                                         — комплект постов (по умолчанию только
+                                           показать, что будет отправлено;
+                                           --no-files — без вложений .files)
     test <группа> <тема> [текст]         — тестовое сообщение, печатает message_id
     delete <группа> <message_id>         — удалить сообщение
 
@@ -258,8 +260,11 @@ def render(text: str, links: list) -> str:
     return PLACEHOLDER_RE.sub(lambda _: link_block, body) if links else body
 
 
-def publish_kit(folder: Path, group_key: str, group: dict, send: bool):
+def publish_kit(folder: Path, group_key: str, group: dict, send: bool,
+                with_files: bool = True):
     posts = load_kit(folder)
+    if not with_files:
+        posts = [(n, t, x, []) for n, t, x, _ in posts]
     chat_id, topic_ids = group["chat_id"], group["topics"]
     for _, topic, _, _ in posts:
         if topic not in topic_ids:
@@ -321,7 +326,8 @@ def main(argv):
         group = args[args.index("--group") + 1] if "--group" in args else "all"
         groups = load_groups()
         for key in pick_groups(groups, group):
-            publish_kit(folder, key, groups[key], send="--send" in args)
+            publish_kit(folder, key, groups[key], send="--send" in args,
+                        with_files="--no-files" not in args)
     elif cmd == "test":
         if len(args) < 2:
             sys.exit("test <группа> <тема> [текст]")

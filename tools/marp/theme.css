@@ -102,6 +102,8 @@ tr:nth-child(even) td { background: var(--light); }
 /* бледно-серый курсивный пример в пустой клетке — ориентир, не диктуемый ответ */
 .hint { color: var(--mute); font-style: italic; }
 .matrix .q.key .hint { color: #AFC6DE; }
+/* тот же ориентир, но крупным кеглем — для примера-синтеза под таблицей */
+.hint.lg { display: block; font-size: 1.222em; margin-top: .5em; }
 
 /* контурная таблица: пустые клетки для заполнения на доске */
 .contour td:empty::after { content: "\00a0"; }

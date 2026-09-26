@@ -32,7 +32,9 @@ telegram_publish.py
 С вложениями пост уходит одним альбомом, текст — подпись под последним
 файлом (до 1024 символов).
 В тексте [слово](#тема) — ссылка на пост этого комплекта в другой теме
-(тот пост должен идти раньше по номеру).
+(тот пост должен идти раньше по номеру); если поста по этой теме в
+комплекте нет (например, «Литература» не обновлялась) — берётся последний
+опубликованный пост этой темы для группы из sent_log.jsonl.
 «Объявления» отправляются последними: строка-плейсхолдер вида
 «[после публикации вставить сюда ссылки …]» заменяется строками-ссылками
 на уже отправленные сообщения этого комплекта.
@@ -267,17 +269,24 @@ def load_kit(folder: Path) -> list:
             + [x for x in posts if x[1] == ANNOUNCE_TOPIC])
 
 
-def render(text: str, links: dict, announce: bool = False) -> str:
+def render(text: str, links: dict, group_key: str, announce: bool = False) -> str:
     """Текст поста → HTML.
     [текст](#тема) — ссылка на уже отправленный пост этого комплекта в теме;
-    в «Объявлениях» плейсхолдер заменяется строками-ссылками на все посты."""
+    если в текущем комплекте поста по этой теме нет — берётся последний
+    опубликованный пост этой темы для группы (см. historical_link), это
+    штатный случай для «Литературы», которая не меняется каждое занятие.
+    В «Объявлениях» плейсхолдер заменяется строками-ссылками на все посты."""
     body = html.escape(text, quote=False)
 
     def inline(m):
-        if m[2] not in links:
-            sys.exit(f"Ссылка на «{m[2]}»: такой пост в комплекте ещё не отправлен "
-                     f"(он должен идти раньше по номеру)")
-        return f'<a href="{links[m[2]]}">{m[1]}</a>'
+        topic = m[2]
+        if topic not in links:
+            hist = historical_link(group_key, topic)
+            if not hist:
+                sys.exit(f"Ссылка на «{topic}»: такой пост ни в комплекте, ни раньше "
+                         f"не найден (для {group_key})")
+            links[topic] = hist
+        return f'<a href="{links[topic]}">{m[1]}</a>'
 
     body = INLINE_LINK_RE.sub(inline, body)
     if announce and links:
@@ -285,6 +294,23 @@ def render(text: str, links: dict, announce: bool = False) -> str:
                           for t, url in links.items())
         body = PLACEHOLDER_RE.sub(lambda _: block, body)
     return body
+
+
+def historical_link(group_key: str, topic: str):
+    """Ссылка на последний опубликованный пост этой темы для группы —
+    из sent_log.jsonl. Нужно, когда в сегодняшнем комплекте своего поста
+    по теме нет (например, «Литература» не меняется от занятия к занятию)
+    и в объявлении на неё всё равно нужно сослаться."""
+    if not SENT_LOG.exists():
+        return None
+    url = None
+    for line in SENT_LOG.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        rec = json.loads(line)
+        if rec.get("group") == group_key and rec.get("topic") == topic and rec.get("url"):
+            url = rec["url"]  # берём последнюю по порядку запись — самую свежую
+    return url
 
 
 def already_published(kit: str, group_key: str) -> bool:
@@ -318,15 +344,16 @@ def publish_kit(folder: Path, group_key: str, group: dict, send: bool,
     for num, topic, text, files in posts:
         tid = topic_ids[topic]
         is_announce = topic == ANNOUNCE_TOPIC
-        body = render(text, links, announce=is_announce)
+        body = render(text, links, group_key, announce=is_announce)
         if files and len(body) > 1024:
             sys.exit(f"Пост {num}: подпись к файлам длиннее 1024 символов")
         print(f"\n── {num}. {TOPIC_TITLES[topic]} (тема {tid})")
         print(body)
         for f in files:
             print(f"   📎 {f.relative_to(REPO_ROOT)}")
-        if is_announce and PLACEHOLDER_RE.search(text) is None and links:
-            print("   (плейсхолдера для ссылок нет — ссылки не подставлены)")
+        if (is_announce and links and PLACEHOLDER_RE.search(text) is None
+                and INLINE_LINK_RE.search(text) is None):
+            print("   (ни плейсхолдера, ни ссылок [текст](#тема) нет — ссылки не подставлены)")
         if not send:
             links[topic] = message_link(chat_id, tid, "…")
             continue

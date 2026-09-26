@@ -99,6 +99,10 @@ tr:nth-child(even) td { background: var(--light); }
 }
 .note::before { content: "💡 "; }
 
+/* бледно-серый курсивный пример в пустой клетке — ориентир, не диктуемый ответ */
+.hint { color: var(--mute); font-style: italic; }
+.matrix .q.key .hint { color: #AFC6DE; }
+
 /* контурная таблица: пустые клетки для заполнения на доске */
 .contour td:empty::after { content: "\00a0"; }
 .contour th { background: var(--accent1); }

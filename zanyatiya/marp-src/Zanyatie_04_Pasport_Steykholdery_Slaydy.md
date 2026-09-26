@@ -93,10 +93,10 @@ size: 16:9
 
 <table class="contour">
 <tr><th>Роль</th><th class="w25">Фамилия, имя</th><th class="w50">Что делает в проекте</th></tr>
-<tr><td>Лидер</td><td></td><td></td></tr>
-<tr><td>Аналитик</td><td></td><td></td></tr>
-<tr><td>Технический эксперт</td><td></td><td></td></tr>
-<tr><td>Коммуникатор</td><td></td><td></td></tr>
+<tr><td>Лидер</td><td></td><td><span class="hint">например: сроки, документы, связь с преподавателем</span></td></tr>
+<tr><td>Аналитик</td><td></td><td><span class="hint">например: методика измерений, обработка данных</span></td></tr>
+<tr><td>Технический эксперт</td><td></td><td><span class="hint">например: схема, пайка, прошивка</span></td></tr>
+<tr><td>Коммуникатор</td><td></td><td><span class="hint">например: разговоры с людьми, текст защиты</span></td></tr>
 </table>
 
 <div class="stop-work">■ СТОП · 3 МИНУТЫ — название одной строкой и третий столбец ролей</div>
@@ -113,11 +113,11 @@ size: 16:9
 
 <table class="contour">
 <tr><th>Строка</th><th class="w75">Формулировка</th></tr>
-<tr><td>Проблема</td><td></td></tr>
-<tr><td>Для кого</td><td></td></tr>
-<tr><td>В отличие от чего</td><td></td></tr>
-<tr><td>Что делаем</td><td></td></tr>
-<tr><td>Какую выгоду даёт</td><td></td></tr>
+<tr><td>Проблема</td><td><span class="hint">например: поливают «на глаз», перелив замечают, когда растение уже пострадало</span></td></tr>
+<tr><td>Для кого</td><td><span class="hint">например: держат 1–3 растения, уезжают на несколько дней</span></td></tr>
+<tr><td>В отличие от чего</td><td><span class="hint">например: полив по расписанию или на ощупь</span></td></tr>
+<tr><td>Что делаем</td><td><span class="hint">например: горшок с датчиком влажности и индикатором</span></td></tr>
+<tr><td>Какую выгоду даёт</td><td><span class="hint">например: полив по показанию датчика, а не на глаз</span></td></tr>
 </table>
 
 <div class="stop-work">■ СТОП · 4 МИНУТЫ — перенос раздела 3 с листа 1</div>
@@ -134,11 +134,11 @@ size: 16:9
 
 <table class="contour">
 <tr><th>SMART</th><th class="w55">Формулировка</th><th>ЧИСТО</th></tr>
-<tr><td>S — Specific</td><td></td><td>Ч — Чёткая</td></tr>
-<tr><td>M — Measurable</td><td></td><td>И — Измеримая</td></tr>
-<tr><td>A — Achievable</td><td></td><td>О — Осуществимая</td></tr>
-<tr><td>R — Relevant</td><td></td><td>Т — Толковая</td></tr>
-<tr><td>T — Time-bound</td><td></td><td>С — Со сроком</td></tr>
+<tr><td>S — Specific</td><td><span class="hint">например: прототип горшка с датчиком влажности и индикатором</span></td><td>Ч — Чёткая</td></tr>
+<tr><td>M — Measurable</td><td><span class="hint">например: точность ±10 % в 10 циклах полива</span></td><td>И — Измеримая</td></tr>
+<tr><td>A — Achievable</td><td><span class="hint">например: команда 3–4 человека, типовой набор деталей</span></td><td>О — Осуществимая</td></tr>
+<tr><td>R — Relevant</td><td><span class="hint">например: закрывает проблему из раздела 3</span></td><td>Т — Толковая</td></tr>
+<tr><td>T — Time-bound</td><td><span class="hint">например: прототип — к 21.11, отчёт — к 26.12</span></td><td>С — Со сроком</td></tr>
 </table>
 
 <div class="stop-work">■ СТОП · 5 МИНУТ — перенос раздела 4 и под таблицей цель одной фразой: её вы произнесёте 03.10 и 26.12</div>
@@ -157,9 +157,9 @@ size: 16:9
 
 <table class="contour">
 <tr><th>Что предъявляем</th><th class="w35">К 21.11 — чекпоинт</th><th class="w35">К 26.12 — защита</th></tr>
-<tr><td>Изделие, макет или программа</td><td></td><td></td></tr>
-<tr><td>Документ</td><td></td><td></td></tr>
-<tr><td>Данные или измерения</td><td></td><td></td></tr>
+<tr><td>Изделие, макет или программа</td><td><span class="hint">например: макет на плате</span></td><td><span class="hint">например: прототип в корпусе</span></td></tr>
+<tr><td>Документ</td><td><span class="hint">например: схема и методика</span></td><td><span class="hint">например: отчёт 5–7 страниц</span></td></tr>
+<tr><td>Данные или измерения</td><td><span class="hint">например: протокол 10 циклов</span></td><td><span class="hint">например: журнал 3 недель</span></td></tr>
 </table>
 
 <div class="stop-work">■ СТОП · 5 МИНУТ — шесть клеток раздела 5</div>
@@ -178,9 +178,9 @@ size: 16:9
 
 <table class="contour">
 <tr><th>Тип границы</th><th class="w75">Формулировка начинается с «не»</th></tr>
-<tr><td>Чего не делаем</td><td></td></tr>
-<tr><td>Для кого не делаем</td><td></td></tr>
-<tr><td>Чего не гарантируем</td><td></td></tr>
+<tr><td>Чего не делаем</td><td><span class="hint">например: не делаем автополив и приложение</span></td></tr>
+<tr><td>Для кого не делаем</td><td><span class="hint">например: не для теплиц и больших кашпо</span></td></tr>
+<tr><td>Чего не гарантируем</td><td><span class="hint">например: не гарантируем работу на любой почве</span></td></tr>
 </table>
 
 <div class="stop-work">■ СТОП · 4 МИНУТЫ — три границы своего проекта</div>
@@ -199,9 +199,9 @@ size: 16:9
 
 <table class="contour">
 <tr><th>Что нужно</th><th>Есть: да / нет</th><th class="w45">Где берём или чем заменяем</th></tr>
-<tr><td>Прибор, материал, деталь</td><td></td><td></td></tr>
-<tr><td>Навык или компетенция</td><td></td><td></td></tr>
-<tr><td>Время и доступ в помещение</td><td></td><td></td></tr>
+<tr><td>Прибор, материал, деталь</td><td><span class="hint">нет</span></td><td><span class="hint">например: покупаем, до 1500 ₽</span></td></tr>
+<tr><td>Навык или компетенция</td><td><span class="hint">частично</span></td><td><span class="hint">например: осваивает технический эксперт</span></td></tr>
+<tr><td>Время и доступ в помещение</td><td><span class="hint">да</span></td><td><span class="hint">например: лаборатория кафедры</span></td></tr>
 </table>
 
 <div class="stop-work">■ СТОП · 4 МИНУТЫ — раздел 7</div>
@@ -220,9 +220,9 @@ size: 16:9
 <tr><th>Дата</th><th class="w85">Что должно быть готово</th></tr>
 <tr><td>26.09</td><td>Тема зафиксирована, черновик паспорта подписан</td></tr>
 <tr><td>03.10</td><td>Паспорт сдан, проект представлен — 3 минуты</td></tr>
-<tr><td>24.10</td><td></td></tr>
-<tr><td>21.11</td><td></td></tr>
-<tr><td>26.12</td><td></td></tr>
+<tr><td>24.10</td><td><span class="hint">например: план собран — WBS, график, риски</span></td></tr>
+<tr><td>21.11</td><td><span class="hint">например: макет собран и откалиброван</span></td></tr>
+<tr><td>26.12</td><td><span class="hint">например: прототип, отчёт, защита</span></td></tr>
 </table>
 
 <div class="stop-work">■ СТОП · 3 МИНУТЫ — строки 24.10, 21.11, 26.12</div>
@@ -241,10 +241,10 @@ size: 16:9
 
 <table class="contour">
 <tr><th>№</th><th class="w90">Критерий — проверка «да / нет»</th></tr>
-<tr><td>1</td><td></td></tr>
-<tr><td>2</td><td></td></tr>
-<tr><td>3</td><td></td></tr>
-<tr><td>4</td><td></td></tr>
+<tr><td>1</td><td><span class="hint">например: включается и показывает состояние без вмешательства</span></td></tr>
+<tr><td>2</td><td><span class="hint">например: расхождение с контролем не больше 10 %</span></td></tr>
+<tr><td>3</td><td><span class="hint">например: журнал без пропусков больше суток</span></td></tr>
+<tr><td>4</td><td><span class="hint">например: в отчёте есть раздел «ограничения»</span></td></tr>
 </table>
 
 <div class="stop-work">■ СТОП · 5 МИНУТ — три-четыре критерия</div>
@@ -260,6 +260,8 @@ size: 16:9
 # Альтернатива — проигравший концепт остаётся в запасе
 
 <div class="card">Одной-двумя фразами: какой концепт проиграл, по какому критерию и при каком условии вы к нему вернётесь.</div>
+
+<div class="hint">например: Вектор Б — карточки по уходу — проиграл по новизне; вернёмся, если датчик недоступен</div>
 
 <div class="stop-work">■ СТОП · 2 МИНУТЫ — раздел 10</div>
 
@@ -309,16 +311,35 @@ size: 16:9
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
+<div class="kicker">ПРАКТИКА 3 · ПРИМЕР</div>
+
+# Горшок на матрице: как выглядит заполнение
+
+<div class="matrix">
+<div class="ax y">Влияние на проект →</div>
+<div class="q"><b>Удовлетворять</b><span class="hint">например: зав. лабораторией</span></div>
+<div class="q key"><b>Работать плотно</b><span class="hint">например: преподаватель, комиссия</span></div>
+<div class="q"><b>Наблюдать</b><span class="hint">например: соседи по комнате</span></div>
+<div class="q"><b>Информировать</b><span class="hint">например: владельцы растений в общежитии</span></div>
+<div class="ax x">Заинтересованность в проекте →</div>
+</div>
+
+<div class="note">Это ориентир, не диктуемый ответ: имя вписывается в квадрант по двум оценкам «высокое / низкое», а не наоборот.</div>
+
+---
+
+<img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
+
 <div class="kicker">ПРАКТИКА 3 · ЗАПОЛНЯЕМ ВМЕСТЕ</div>
 
 # На примере горшка: кто влияет на проект, кроме команды
 
 <table class="contour">
 <tr><th class="w22">Стейкхолдер</th><th class="w30">Чего ждёт от проекта</th><th>Влияние</th><th>Интерес</th><th class="w22">Что делаем</th></tr>
-<tr><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td></tr>
-<tr><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td><span class="hint">преподаватель, комиссия</span></td><td><span class="hint">предъявимый результат в срок</span></td><td><span class="hint">высокое</span></td><td><span class="hint">высокий</span></td><td><span class="hint">работать плотно</span></td></tr>
+<tr><td><span class="hint">владельцы растений</span></td><td><span class="hint">понятный индикатор без настройки</span></td><td><span class="hint">низкое</span></td><td><span class="hint">высокий</span></td><td><span class="hint">информировать</span></td></tr>
+<tr><td><span class="hint">зав. лабораторией</span></td><td><span class="hint">аккуратность, согласованное время</span></td><td><span class="hint">высокое</span></td><td><span class="hint">низкий</span></td><td><span class="hint">удовлетворять</span></td></tr>
+<tr><td><span class="hint">соседи по комнате</span></td><td><span class="hint">чтобы не мешало ночью</span></td><td><span class="hint">низкое</span></td><td><span class="hint">низкий</span></td><td><span class="hint">наблюдать</span></td></tr>
 </table>
 
 <div class="stop-work">■ СТОП · 4 МИНУТЫ — четыре строки на доске, вопросом в зал</div>

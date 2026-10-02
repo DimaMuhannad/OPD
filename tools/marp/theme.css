@@ -197,3 +197,24 @@ table.contour { display: table; width: 100%; }
 .contour th.w90 { width: 90%; }
 /* полный логотип на титульном слайде (style= на img вырезается санитайзером Marp) */
 .guap-logo-full { height: 60px; position: absolute; top: 28px; left: 44px; }
+
+/* ── v2: крупная версия (занятие 5 и далее) ────────────────────────────────
+   Верхняя граница допуска шаблона ГУАП: основной текст 20 pt (18±2), таблицы
+   16 pt (14±2). Заголовок слайда остаётся 24 pt — задан шаблоном. Контраст:
+   примеры и пометки тёмно-синие (dk2), а не серые; частный пример — курсив без
+   цвета, как в правиле шаблона. Включается директивой class: v2 в колоде. */
+section.v2 { font-size: 26.667px; line-height: 1.3; }          /* 20 pt */
+section.v2 h1 { font-size: 1.2em; }                             /* 24 pt */
+section.v2 table { font-size: .8em; display: table; width: 100%; }  /* 16 pt */
+section.v2 .note { color: var(--dk2); font-size: .85em; }
+section.v2 .hint { color: var(--dk2); }
+section.v2 .stop-work, section.v2 .steps div { font-size: .85em; }
+section.v2 .grades-note { color: var(--dk2); }
+section.v2 .src { font-style: italic; font-size: .8em; margin: .1em 0 .3em; }
+/* рисунок на всю ширину слайда или в колонке рядом с текстом */
+.fig { display: block; margin: .2em auto 0; max-width: 100%; height: auto; }
+.cols { display: flex; gap: 1.2em; align-items: center; margin-top: .3em; }
+.cols > div { flex: 1; }
+.cols .fig { flex: none; width: 600px; margin: 0; }
+/* слайд-хук: тёмный фон, вопрос крупнее обычного заголовка */
+section.v2.hook h1 { font-size: 1.35em; margin-bottom: .4em; }

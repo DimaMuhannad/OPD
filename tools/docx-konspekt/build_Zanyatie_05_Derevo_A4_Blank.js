@@ -1,6 +1,6 @@
-// Бланк листа А3 к занятию 5: лицевая сторона — дерево проблем, обратная — дерево целей.
-// Чёрно-белая печать, как Zanyatie_04_Pasport_Blank.docx. Запуск:
-//   NODE_PATH=<scratchpad>/node_modules node tools/docx-konspekt/build_Zanyatie_05_Derevo_A3_Blank.js
+// Бланк листа А4 к занятию 5: лицевая сторона — дерево проблем, обратная — дерево целей.
+// Чёрно-белая печать, альбомная А4, как Zanyatie_04_Pasport_Blank.docx. Запуск:
+//   NODE_PATH=<scratchpad>/node_modules node tools/docx-konspekt/build_Zanyatie_05_Derevo_A4_Blank.js
 const {
   Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType, BorderStyle,
   AlignmentType, HeightRule, PageOrientation, PageBreak, TableLayoutType,
@@ -8,8 +8,10 @@ const {
 const fs = require("fs");
 
 const FONT = "Arial", INK = "000000", MUTE = "666666";
-const PAGE_W = 23811 - 2 * 850; // A3 альбомная минус поля, twips
-const GAP = 300;
+const MARGIN_X = 700;
+const PAGE_W = 16838 - 2 * MARGIN_X; // A4 альбомная минус поля, twips
+const GAP = 200;
+const CENTRAL_W = 10000;
 
 const none = { style: BorderStyle.NONE, size: 0, color: "FFFFFF" };
 const noBorders = { top: none, bottom: none, left: none, right: none };
@@ -18,20 +20,20 @@ const dashed = { style: BorderStyle.DASHED, size: 10, color: INK };
 const boxBorders = { top: thick, bottom: thick, left: thick, right: thick };
 const dashBorders = { top: dashed, bottom: dashed, left: dashed, right: dashed };
 
-const run = (t, o = {}) => new TextRun({ text: t, font: FONT, size: o.size || 28, bold: !!o.bold, color: o.color || INK, italics: !!o.italic });
+const run = (t, o = {}) => new TextRun({ text: t, font: FONT, size: o.size || 22, bold: !!o.bold, color: o.color || INK, italics: !!o.italic });
 const para = (t, o = {}) => new Paragraph({
   alignment: o.align || AlignmentType.LEFT,
-  spacing: { before: o.before || 0, after: o.after ?? 80 },
+  spacing: { before: o.before || 0, after: o.after ?? 60 },
   children: Array.isArray(t) ? t : [run(t, o)],
 });
-const label = (t, hint) => para([run(t, { bold: true, size: 28 }), run(hint ? "  " + hint : "", { size: 26, color: MUTE, italic: true })], { before: 120, after: 60 });
-const arrow = (t) => para(t, { align: AlignmentType.CENTER, size: 30, bold: true, before: 40, after: 40 });
+const label = (t, hint) => para([run(t, { bold: true, size: 22 }), run(hint ? "  " + hint : "", { size: 19, color: MUTE, italic: true })], { before: 80, after: 40 });
+const arrow = (t) => para(t, { align: AlignmentType.CENTER, size: 22, bold: true, before: 20, after: 20 });
 
-function boxCell(width, text, height, borders) {
+function boxCell(width, text) {
   return new TableCell({
-    width: { size: width, type: WidthType.DXA }, borders,
-    margins: { top: 100, bottom: 100, left: 160, right: 160 },
-    children: (Array.isArray(text) ? text : [text || ""]).map((t) => para(t, { size: 22, color: MUTE, italic: true, after: 260 })),
+    width: { size: width, type: WidthType.DXA }, borders: arguments[2],
+    margins: { top: 80, bottom: 80, left: 120, right: 120 },
+    children: (Array.isArray(text) ? text : [text || ""]).map((t) => para(t, { size: 19, color: MUTE, italic: true, after: 160 })),
   });
 }
 function gapCell() {
@@ -43,7 +45,7 @@ function boxRow(n, labels, height, borders = boxBorders, total = PAGE_W) {
   const cells = [];
   for (let i = 0; i < n; i++) {
     if (i) cells.push(gapCell());
-    cells.push(boxCell(w, labels[i] || "", height, borders));
+    cells.push(boxCell(w, labels[i] || "", borders));
   }
   return new Table({
     width: { size: total, type: WidthType.DXA }, alignment: AlignmentType.CENTER,
@@ -60,7 +62,7 @@ function pickRow(n) {
     if (i) cells.push(gapCell());
     cells.push(new TableCell({
       width: { size: w, type: WidthType.DXA }, borders: noBorders,
-      children: [para([run("☐ берём в проект     ☐ граница", { size: 26 })], { align: AlignmentType.CENTER, before: 40, after: 0 })],
+      children: [para([run("☐ берём в проект   ☐ граница", { size: 20 })], { align: AlignmentType.CENTER, before: 30, after: 0 })],
     }));
   }
   return new Table({
@@ -70,56 +72,55 @@ function pickRow(n) {
   });
 }
 const head = (title, sub) => [
-  para([run(title, { bold: true, size: 44 })], { after: 40 }),
-  para([run("Команда: ______________________________    Проект: ____________________________________________", { size: 26 }), run("     " + sub, { size: 24, color: MUTE, italic: true })], { after: 60 }),
+  para([run(title, { bold: true, size: 34 })], { after: 20 }),
+  para([run("Команда: ______________________    Проект: ______________________________", { size: 21 }), run("     " + sub, { size: 18, color: MUTE, italic: true })], { after: 40 }),
 ];
 
 // ── Лицевая сторона: дерево проблем ──
 const front = [
-  ...head("Дерево проблем", "Лицевая сторона листа А3"),
+  ...head("Дерево проблем", "лицевая сторона листа А4"),
   label("СЛЕДСТВИЯ", "к чему это приводит? не меньше двух"),
-  boxRow(3, ["следствие", "следствие", "следствие"], 2100),
+  boxRow(3, ["следствие", "следствие", "следствие"], 1350),
   arrow("▲   приводит к   ▲"),
   label("ЦЕНТРАЛЬНАЯ ПРОБЛЕМА", "одна; состояние дел, а не отсутствие продукта; без названия вашего продукта"),
-  boxRow(1, ["центральная проблема"], 1500, boxBorders, 15500),
+  boxRow(1, ["центральная проблема"], 900, boxBorders, CENTRAL_W),
   arrow("▲   приводит к   ▲"),
   label("ПРИЧИНЫ", "почему это происходит? не меньше трёх; состояния, а не действия"),
-  boxRow(4, ["причина", "причина", "причина", "причина"], 2900),
-  para("", { after: 60 }),
-  para([run("Проверка:  ☐ проблему можно записать, не называя продукт     ☐ в причинах нет глаголов действия     ☐ каждая связь прочитана вслух: это факт или догадка?     ? — отметить догадки", { size: 24 })], { before: 100 }),
+  boxRow(4, ["причина", "причина", "причина", "причина"], 1900),
+  para([run("Проверка:  ☐ проблему можно записать, не называя продукт    ☐ в причинах нет глаголов действия    ☐ каждая связь прочитана вслух: факт или догадка?  Догадки отметьте «?»", { size: 19 })], { before: 100 }),
 ];
 // ── Обратная сторона: дерево целей ──
 const back = [
   new Paragraph({ children: [new PageBreak()] }),
-  ...head("Дерево целей", "Обратная сторона листа А3"),
+  ...head("Дерево целей", "обратная сторона листа А4"),
   label("ОЖИДАЕМЫЕ ЭФФЕКТЫ", "каждое следствие переписано как желаемое состояние"),
-  boxRow(3, ["эффект", "эффект", "эффект"], 1700),
+  boxRow(3, ["эффект", "эффект", "эффект"], 1000),
   arrow("▲   достигается через   ▲"),
   label("ГЛАВНАЯ ЦЕЛЬ", "центральная проблема, переписанная как состояние, при котором её нет"),
-  boxRow(1, ["главная цель"], 1300, boxBorders, 15500),
+  boxRow(1, ["главная цель"], 800, boxBorders, CENTRAL_W),
   arrow("▲   достигается через   ▲"),
   label("ПОДЦЕЛИ", "каждая причина, переписанная как состояние; отметьте, что берёте в проект"),
-  boxRow(4, ["подцель", "подцель", "подцель", "подцель"], 2300),
+  boxRow(4, ["подцель", "подцель", "подцель", "подцель"], 1400),
   pickRow(4),
-  label("ГРАНИЦЫ", "ветви, которые оставляем: записать каждую как отказ («… не делаем»)"),
-  boxRow(1, [["1)  … не делаем", "2)  … не делаем", "3)  … не делаем"]], 1500, dashBorders, PAGE_W),
-  para([run("Проверка:  ☐ для каждой цели есть причина на лицевой стороне     ☐ выбранное помещается в срок до защиты     ☐ цели записаны как состояния, а не как действия", { size: 24 })], { before: 100 }),
+  label("ГРАНИЦЫ", "ветви, которые оставляем: каждую записать как отказ («… не делаем»)"),
+  boxRow(1, [["1)  … не делаем", "2)  … не делаем", "3)  … не делаем"]], 900, dashBorders, PAGE_W),
+  para([run("Проверка:  ☐ для каждой цели есть причина на лицевой стороне    ☐ выбранное помещается в срок до защиты    ☐ цели записаны как состояния, а не как действия", { size: 19 })], { before: 80 }),
 ];
 
 const doc = new Document({
-  creator: "ГУАП · Кафедра № 3", title: "Занятие 5. Бланк листа А3: дерево проблем и дерево целей",
+  creator: "ГУАП · Кафедра № 3", title: "Занятие 5. Бланк листа А4: дерево проблем и дерево целей",
   sections: [{
     properties: {
       page: {
-        size: { width: 16838, height: 23811, orientation: PageOrientation.LANDSCAPE },
-        margin: { top: 700, bottom: 700, left: 850, right: 850 },
+        size: { width: 11906, height: 16838, orientation: PageOrientation.LANDSCAPE },
+        margin: { top: 560, bottom: 560, left: MARGIN_X, right: MARGIN_X },
       },
     },
     children: [...front, ...back],
   }],
 });
 Packer.toBuffer(doc).then((b) => {
-  const out = "zanyatiya/Zanyatie_05_Derevo_A3_Blank.docx";
+  const out = "zanyatiya/Zanyatie_05_Derevo_A4_Blank.docx";
   fs.writeFileSync(out, b);
   console.log("OK", out, b.length);
 });

@@ -53,6 +53,9 @@
 
 ## Решения
 
+- 17.10 — работа со сбросом контекста: после каждого шага навыки пишут `etap` в `progress.toml` и решения в файлы
+  (задание, `briefy/<N>-review.md`, `STATE.md`); после `/clear` — `/progress` и навык продолжает с записанного шага.
+
 - 17.10 — своя лёгкая GSD-подобная система: плагин `pisatel` (маркетплейс `opd` в `.claude-plugin/marketplace.json`).
   Готово: `/progress` (аналог `/gsd:progress`), `/brief N` (задание на главу → `briefy/`), `/review N` (агент
   «свежий читатель», только чтение). В плане: `/doc`, `/istochniki`. Настройки — `[nastrojki]` в `progress.toml`.

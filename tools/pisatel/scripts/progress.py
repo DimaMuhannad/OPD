@@ -56,7 +56,7 @@ def polosa(dolya, n=20):
 
 def sobrat(data, path, segodnya):
     root = koren_repo(path)
-    razdely, zhdut, rashozhdeniya = [], [], []
+    razdely, zhdut, rashozhdeniya, v_rabote = [], [], [], []
     sled = None
     for r in data.get("razdel", []):
         punkty = r.get("punkt", [])
@@ -73,6 +73,11 @@ def sobrat(data, path, segodnya):
                 zhdut.append(f"{p['id']} {p['nazvanie']} — {STATUSY[st][0]}, ждёт: {p['zhdet']}")
             elif st == "vychitka":
                 zhdut.append(f"{p['id']} {p['nazvanie']} — на вычитке")
+            if p.get("etap"):  # незаконченная работа: с неё продолжают после сброса контекста
+                # команда продолжения: из начала etap («review: …», «brief: …»), иначе команда раздела
+                kmd = p["etap"].split(":", 1)[0].strip()
+                kmd = f"/{kmd}" if kmd in ("brief", "review", "doc", "istochniki") else r.get("komanda", "").strip()
+                v_rabote.append(f"{kmd} {p['id']}".strip() + f" — {p['nazvanie']}: {p['etap']}")
             briefy = data.get("nastrojki", {}).get("briefy")
             if briefy and STATUSY[st][1] >= 0.15 and not os.path.exists(os.path.join(root, briefy, f"{p['id']}.md")):
                 if st == "brif":
@@ -97,8 +102,8 @@ def sobrat(data, path, segodnya):
                      "kto": v.get("kto", ""), "dney": dney})
     return {
         "proekt": data.get("proekt", ""), "segodnya": segodnya.isoformat(), "fail": path,
-        "razdely": razdely, "zhdut": zhdut, "vehi": vehi, "rashozhdeniya": rashozhdeniya,
-        "sleduyushchee": data.get("sleduyushchee") or sled,
+        "razdely": razdely, "zhdut": zhdut, "v_rabote": v_rabote, "vehi": vehi, "rashozhdeniya": rashozhdeniya,
+        "sleduyushchee": (f"продолжить {v_rabote[0]}" if v_rabote else None) or data.get("sleduyushchee") or sled,
     }
 
 
@@ -110,6 +115,10 @@ def pechat(o):
         detali = ", ".join(f"{STATUSY[k][2]} {STATUSY[k][0]} {v}" for k, v in s.items() if v)
         print(f"{r['nazvanie']:<{w}}  {polosa(r['dolya'])} {round(r['dolya'] * 100):>3} %  "
               f"({s['odobreno']}/{r['vsego']} одобрено; {detali})")
+    if o["v_rabote"]:
+        print("\nНе закончено (продолжить с записанного шага):")
+        for z in o["v_rabote"]:
+            print(f"  ▶ {z}")
     if o["vehi"]:
         print("\nВехи:")
         for v in o["vehi"]:

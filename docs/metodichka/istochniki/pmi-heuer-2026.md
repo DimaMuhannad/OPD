@@ -23,11 +23,10 @@ https://www.nttdata.com/global/en/-/media/nttdataglobal/1_files/insights/focus/0
 «Streamlined from 12 to 6 principles». «Actionable and practical: Describe > Project Impact > Principle
 in Action > Connected Domains». «No overlap with performance domains».
 
-> Наш перевод — утверждённый 17.10 (`PRAVILA_KONTENTA.md`). **Расхождение:** полные названия
-> третьего и пятого принципа длиннее, чем в нашей таблице: «Embed Quality Into Processes and
-> Deliverables» (встроенное качество — в процессы и результаты), «Integrate Sustainability Within All
-> Project Areas» (учёт устойчивого развития — во всех областях проекта). Короткие русские названия
-> можно оставить; английский в скобках — полный. Решает автор.
+> Русские названия — по неофициальному переводу PMBOK 8 (решение 17.10, `PRAVILA_KONTENTA.md`,
+> раздел 1): принимать целостный взгляд · фокусироваться на ценности · встраивать качество в процессы и
+> результаты · быть подотчётным лидером · интегрировать устойчивость во все области проекта · формировать
+> культуру полномочий. Полные английские названия совпадают со слайдом 13.
 
 **Три измерения проектного мышления (слайд 14, пролог стандарта).** «The proactive mindset … emphasizes
 systems thinking and appropriate levels of planning, helping ensure that target quality thresholds are

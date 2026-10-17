@@ -4,7 +4,7 @@
 
 proekt = "Методические указания и РПД 2027"
 obnovleno = 2026-10-17
-sleduyushchee = "вычитка 3.2 и Д1 (преподаватель); CSL под ГОСТ Р 7.0.100–2018 — см. BACKLOG.md, раздел 6"
+sleduyushchee = "/dp-glava 1.3 — текст по одобренному заданию; без преподавателя — CSL под ГОСТ Р 7.0.100–2018"
 
 # Настройки для /dp-brief и /dp-review (плагин pisatel): что читать, где хранить задания, чем проверять
 [nastrojki]
@@ -32,8 +32,8 @@ status = "ne_nachato"
 [[razdel.punkt]]
 id = "1.3"
 nazvanie = "Шесть принципов проектной работы"
-status = "ne_nachato"
-etap = "brief: STIL.md черновик ждёт одобрения; выписка pmi-heuer-2026 есть; дальше — одобрение задания, шаг 2 текст"
+status = "brif"
+fail = "docs/metodichka/briefy/1.3.md"
 
 [[razdel.punkt]]
 id = "1.4"
@@ -210,7 +210,7 @@ nazvanie = "Долги и бэклог"
 [[razdel.punkt]]
 id = "Д1"
 nazvanie = "Одобрить STIL.md и задание на 1.3"
-status = "vychitka"
+status = "odobreno"
 zhdet = "преподаватель"
 fail = "docs/metodichka/briefy/1.3.md"
 

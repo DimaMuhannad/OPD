@@ -19,6 +19,7 @@
 | Principles: Adopt a Holistic View · Focus on Value · Embed Quality Into Processes and Deliverables · Be an Accountable Leader · Integrate Sustainability Within All Project Areas · Build an Empowered Culture | Принципы: принимать целостный взгляд · фокусироваться на ценности · встраивать качество в процессы и результаты · быть подотчётным лидером · интегрировать устойчивость во все области проекта · формировать культуру полномочий |
 | Performance Domains: Governance · Scope · Schedule · Finance · Stakeholders · Resources · Risk | Домены исполнения: руководство · содержание · расписание · финансы · заинтересованные стороны · ресурсы · риски |
 | Focus Areas: Initiating · Planning · Executing · Monitoring and Controlling · Closing | Фокусные области: инициация · планирование · исполнение · мониторинг и контроль · закрытие |
+| Короткие метки принципов (решение 17.10) | полное название — в 1.3 и таблице принципов; в главах 2–6 коротко: целостный взгляд · ценность · качество · подотчётность · устойчивость · культура полномочий |
 | Project (глоссарий) | проект — временное начинание в уникальном контексте, предпринимаемое для создания ценности |
 | development approaches: predictive · adaptive · hybrid | подходы к разработке: предиктивный · адаптивный · гибридный |
 

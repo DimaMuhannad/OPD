@@ -76,12 +76,12 @@ def sobrat(data, path, segodnya):
             if p.get("etap"):  # незаконченная работа: с неё продолжают после сброса контекста
                 # команда продолжения: из начала etap («review: …», «brief: …»), иначе команда раздела
                 kmd = p["etap"].split(":", 1)[0].strip()
-                kmd = f"/{kmd}" if kmd in ("brief", "review", "doc", "istochniki") else r.get("komanda", "").strip()
+                kmd = f"/dp-{kmd}" if kmd in ("brief", "review", "doc", "istochniki") else r.get("komanda", "").strip()
                 v_rabote.append(f"{kmd} {p['id']}".strip() + f" — {p['nazvanie']}: {p['etap']}")
             briefy = data.get("nastrojki", {}).get("briefy")
             if briefy and STATUSY[st][1] >= 0.15 and not os.path.exists(os.path.join(root, briefy, f"{p['id']}.md")):
                 if st == "brif":
-                    rashozhdeniya.append(f"{p['id']}: статус «задание», но нет {briefy}/{p['id']}.md (/brief {p['id']})")
+                    rashozhdeniya.append(f"{p['id']}: статус «задание», но нет {briefy}/{p['id']}.md (/dp-brief {p['id']})")
             f = p.get("fail")
             if f:
                 est = os.path.exists(os.path.join(root, f))

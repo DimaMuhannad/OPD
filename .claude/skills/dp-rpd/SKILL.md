@@ -1,5 +1,5 @@
 ---
-name: rpd
+name: dp-rpd
 description: Работа над черновиком предложений РПД 2027 «Основы проектной деятельности» (1 курс) для составителя — правки разделов, часов, практик, оценочных средств и литературы с проверкой согласованности и одобрением преподавателя. Использовать для любой правки docs/metodichka/rpd/.
 ---
 
@@ -27,7 +27,7 @@ description: Работа над черновиком предложений Р�
 | 2 | `python3 docs/metodichka/rpd/proverka_rpd.py` | 0 ошибок: часы 17/34/21 по таблице 3; часы практик по разделам = таблица 5; ПП 8; тон |
 | 3 | `.docx`: `NODE_PATH=/opt/node-tools/node_modules node tools/docx-konspekt/md_to_docx.js <md> <docx>` (на своей машине — свой `NODE_PATH`, см. `docs/metodichka/PEREEZD.md`) | — |
 | 4 | Показ (`SendUserFile`) и одобрение опросником | — |
-| 5 | `docs/metodichka/progress.toml` — статус пункта Р0–Р4 (между шагами — поле `etap`, чтобы продолжить после `/clear`); коммит, пуш, `docs/metodichka/STATE.md` | `/progress` без расхождений |
+| 5 | `docs/metodichka/progress.toml` — статус пункта Р0–Р4 (между шагами — поле `etap`, чтобы продолжить после `/clear`); коммит, пуш, `docs/metodichka/STATE.md` | `/dp-progress` без расхождений |
 
 ## Связи
 

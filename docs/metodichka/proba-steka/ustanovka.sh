@@ -31,6 +31,6 @@ mkdir -p npm && cd npm && npm init -y >/dev/null && npm i --silent pagedjs playw
 
 quarto --version; typst --version; xelatex --version | head -1; dot -V
 
-# Плагин pisatel (/progress и др.) из этого репозитория — для всех проектов пользователя
+# Плагин pisatel (/dp-progress и др.) из этого репозитория — для всех проектов пользователя
 REPO="$(cd "$(dirname "$0")/../../.." && pwd)"
 claude plugin marketplace add "$REPO" && claude plugin install pisatel@opd || echo "плагин pisatel не установлен — см. tools/pisatel/README.md"

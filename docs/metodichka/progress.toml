@@ -1,12 +1,12 @@
-# Прогресс направления «методичка и РПД». Читает /progress (плагин pisatel, tools/pisatel/).
+# Прогресс направления «методичка и РПД». Читает /dp-progress (плагин pisatel, tools/pisatel/).
 # Статусы: ne_nachato · brif (задание на главу) · chernovik · vychitka (ждёт преподавателя) · odobreno.
-# Обновлять сразу после шага работы: навыки /glava и /rpd делают это сами.
+# Обновлять сразу после шага работы: навыки /dp-glava и /dp-rpd делают это сами.
 
 proekt = "Методические указания и РПД 2027"
 obnovleno = 2026-10-17
-sleduyushchee = "/glava 1.3 — шесть принципов на жизненных примерах (или введение)"
+sleduyushchee = "/dp-glava 1.3 — шесть принципов на жизненных примерах (или введение)"
 
-# Настройки для /brief и /review (плагин pisatel): что читать, где хранить задания, чем проверять
+# Настройки для /dp-brief и /dp-review (плагин pisatel): что читать, где хранить задания, чем проверять
 [nastrojki]
 pravila = ["CLAUDE.md", "docs/metodichka/PRAVILA_KONTENTA.md"]   # правила тона и содержания
 struktura = "docs/metodichka/STRUKTURA.md"                         # оглавление и назначение шагов
@@ -17,7 +17,7 @@ proverki = ["python3 docs/metodichka/kniga/proverka.py"]          # автопр
 [[razdel]]
 id = "kniga"
 nazvanie = "Книга (23 шага)"
-komanda = "/glava"
+komanda = "/dp-glava"
 
 [[razdel.punkt]]
 id = "1.1"
@@ -171,7 +171,7 @@ status = "ne_nachato"
 [[razdel]]
 id = "rpd"
 nazvanie = "РПД 2027"
-komanda = "/rpd"
+komanda = "/dp-rpd"
 
 [[razdel.punkt]]
 id = "Р0"

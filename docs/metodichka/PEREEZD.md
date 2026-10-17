@@ -12,7 +12,7 @@
 | Книга: главы, рисунки, шаблоны, сборка и проверки | `docs/metodichka/kniga/` (`build.sh`, `proverka.py`, `posle_docx.py`) |
 | Черновик РПД и его проверка | `docs/metodichka/rpd/` (`proverka_rpd.py`) |
 | Проба стека (архив сравнения движков) | `docs/metodichka/proba-steka/` |
-| Навыки Claude Code | `.claude/skills/glava/`, `.claude/skills/rpd/` (и `zanyatie/` сессии занятий) |
+| Навыки Claude Code | `.claude/skills/dp-glava/`, `.claude/skills/dp-rpd/` (и `zanyatie/` сессии занятий) |
 | Правила курса | `CLAUDE.md` (ведёт сессия занятий) |
 | Зависимости | `docs/metodichka/package.json` (Node), `docs/metodichka/requirements.txt` (Python) |
 
@@ -47,7 +47,7 @@ Windows: удобнее всего через **WSL (Ubuntu)** — тогда р
 
 | Переменная | Значение | Где нужна |
 | --- | --- | --- |
-| `NODE_PATH` | `<путь к OPD>/docs/metodichka/node_modules` | `tools/docx-konspekt/md_to_docx.js`, навык `/rpd` |
+| `NODE_PATH` | `<путь к OPD>/docs/metodichka/node_modules` | `tools/docx-konspekt/md_to_docx.js`, навык `/dp-rpd` |
 | `CHROME_PATH` | путь к Chrome или Chromium | только проба Paged.js в `proba-steka/` |
 
 В облачной среде вместо этого работает `proba-steka/ustanovka.sh`; на своей машине он не нужен.
@@ -61,7 +61,7 @@ claude plugin marketplace add /путь/к/OPD
 claude plugin install pisatel@opd
 ```
 
-Проверка: в Claude Code команда `/progress` показывает прогресс по `docs/metodichka/progress.toml`. Без Claude Code: `python3 tools/pisatel/scripts/progress.py docs/metodichka/progress.toml`.
+Проверка: в Claude Code команда `/dp-progress` показывает прогресс по `docs/metodichka/progress.toml`. Без Claude Code: `python3 tools/pisatel/scripts/progress.py docs/metodichka/progress.toml`.
 
 ## 5. Проверка после переезда
 

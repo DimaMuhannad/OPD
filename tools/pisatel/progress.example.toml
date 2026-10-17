@@ -3,9 +3,9 @@
 
 proekt = "Название проекта"
 obnovleno = 2026-01-01
-# sleduyushchee = "/glava 1.1 — первая глава"   # если не задано — первый пункт «не начато»
+# sleduyushchee = "/dp-glava 1.1 — первая глава"   # если не задано — первый пункт «не начато»
 
-[nastrojki]                                   # для /brief и /review
+[nastrojki]                                   # для /dp-brief и /dp-review
 pravila = ["CLAUDE.md"]                       # файлы правил тона и содержания
 struktura = "docs/STRUKTURA.md"               # оглавление и назначение глав
 briefy = "docs/briefy"                        # папка заданий на главы
@@ -15,7 +15,7 @@ proverki = []                                 # команды автопров�
 [[razdel]]
 id = "kniga"
 nazvanie = "Книга"
-komanda = "/glava"            # команда, которой продвигается раздел (для подсказки «Дальше»)
+komanda = "/dp-glava"            # команда, которой продвигается раздел (для подсказки «Дальше»)
 
 [[razdel.punkt]]
 id = "1.1"

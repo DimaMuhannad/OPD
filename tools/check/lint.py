@@ -42,6 +42,8 @@ def lines(p):
 def check_common(p, L, tone=True, numbers=True):
     for i, s in enumerate(L, 1):
         low = s.lower()
+        if re.search(r"\b[АA]3\b", s):
+            add("ОШИБКА", p, i, "формат А3 — принтера и бумаги А3 нет, только А4 (17.10)", s)
         if tone:
             for rx, msg in TONE:
                 if re.search(rx, low) and "productive failure" not in low:

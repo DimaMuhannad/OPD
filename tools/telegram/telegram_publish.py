@@ -69,6 +69,8 @@ TOPIC_TITLES = {
     "literatura": "Литература",
 }
 INLINE_LINK_RE = re.compile(r"\[([^\]\n]+)\]\(#(\w+)\)")
+# [текст](https://…) — внешняя ссылка, например на Google-таблицу для копирования
+EXT_LINK_RE = re.compile(r"\[([^\]\n]+)\]\((https://[^)\s]+)\)")
 PLACEHOLDER_RE = re.compile(r"^\[после публикации вставить[^\]]*\]\s*$", re.M)
 
 
@@ -272,6 +274,7 @@ def load_kit(folder: Path) -> list:
 def render(text: str, links: dict, group_key: str, announce: bool = False) -> str:
     """Текст поста → HTML.
     [текст](#тема) — ссылка на уже отправленный пост этого комплекта в теме;
+    [текст](https://…) — внешняя ссылка;
     если в текущем комплекте поста по этой теме нет — берётся последний
     опубликованный пост этой темы для группы (см. historical_link), это
     штатный случай для «Литературы», которая не меняется каждое занятие.
@@ -289,6 +292,7 @@ def render(text: str, links: dict, group_key: str, announce: bool = False) -> st
         return f'<a href="{links[topic]}">{m[1]}</a>'
 
     body = INLINE_LINK_RE.sub(inline, body)
+    body = EXT_LINK_RE.sub(lambda m: f'<a href="{m[2]}">{m[1]}</a>', body)
     if announce and links:
         block = "\n".join(f'<a href="{url}">{html.escape(TOPIC_TITLES[t])}</a>'
                           for t, url in links.items())

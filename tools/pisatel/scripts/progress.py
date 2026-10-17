@@ -73,6 +73,10 @@ def sobrat(data, path, segodnya):
                 zhdut.append(f"{p['id']} {p['nazvanie']} — {STATUSY[st][0]}, ждёт: {p['zhdet']}")
             elif st == "vychitka":
                 zhdut.append(f"{p['id']} {p['nazvanie']} — на вычитке")
+            briefy = data.get("nastrojki", {}).get("briefy")
+            if briefy and STATUSY[st][1] >= 0.15 and not os.path.exists(os.path.join(root, briefy, f"{p['id']}.md")):
+                if st == "brif":
+                    rashozhdeniya.append(f"{p['id']}: статус «задание», но нет {briefy}/{p['id']}.md (/brief {p['id']})")
             f = p.get("fail")
             if f:
                 est = os.path.exists(os.path.join(root, f))

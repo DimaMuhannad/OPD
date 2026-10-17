@@ -5,6 +5,13 @@ proekt = "Название проекта"
 obnovleno = 2026-01-01
 # sleduyushchee = "/glava 1.1 — первая глава"   # если не задано — первый пункт «не начато»
 
+[nastrojki]                                   # для /brief и /review
+pravila = ["CLAUDE.md"]                       # файлы правил тона и содержания
+struktura = "docs/STRUKTURA.md"               # оглавление и назначение глав
+briefy = "docs/briefy"                        # папка заданий на главы
+chitatel = "кто читает текст и что он уже знает"
+proverki = []                                 # команды автопроверок, например ["python3 tools/lint.py"]
+
 [[razdel]]
 id = "kniga"
 nazvanie = "Книга"

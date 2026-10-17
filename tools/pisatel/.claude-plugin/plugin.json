@@ -1,8 +1,12 @@
 {
   "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "pisatel",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Лёгкая GSD-подобная система для книг и документов в соавторстве с ИИ: прогресс по файлу progress.toml, одобрение человека между шагами, правила проекта в его же репозитории.",
-  "author": { "name": "Д. А. Попов" },
-  "skills": ["./skills/"]
+  "author": {
+    "name": "Д. А. Попов"
+  },
+  "skills": [
+    "./skills/"
+  ]
 }

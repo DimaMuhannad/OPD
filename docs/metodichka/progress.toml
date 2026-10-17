@@ -4,7 +4,7 @@
 
 proekt = "Методические указания и РПД 2027"
 obnovleno = 2026-10-17
-sleduyushchee = "/dp-glava 1.3 — шесть принципов на жизненных примерах (или введение)"
+sleduyushchee = "вычитка 3.2 и Д1 (преподаватель); CSL под ГОСТ Р 7.0.100–2018 — см. BACKLOG.md, раздел 6"
 
 # Настройки для /dp-brief и /dp-review (плагин pisatel): что читать, где хранить задания, чем проверять
 [nastrojki]
@@ -201,6 +201,69 @@ id = "Р4"
 nazvanie = "Черновик составителя, кафедра, утверждение"
 status = "ne_nachato"
 zhdet = "составитель, кафедра"
+
+# Долги и бэклог: почему и в каком порядке — docs/metodichka/BACKLOG.md
+[[razdel]]
+id = "dolgi"
+nazvanie = "Долги и бэклог"
+
+[[razdel.punkt]]
+id = "Д1"
+nazvanie = "Одобрить STIL.md и задание на 1.3"
+status = "vychitka"
+zhdet = "преподаватель"
+fail = "docs/metodichka/briefy/1.3.md"
+
+[[razdel.punkt]]
+id = "Д2"
+nazvanie = "Определение проекта для 1.1: PMBOK 8 или вводная лекция"
+status = "ne_nachato"
+zhdet = "преподаватель"
+
+[[razdel.punkt]]
+id = "Д3"
+nazvanie = "Сверить русские названия процессов PMBOK 6 по экземпляру перевода"
+status = "ne_nachato"
+zhdet = "преподаватель (экземпляр книги)"
+
+[[razdel.punkt]]
+id = "Д4"
+nazvanie = "Вопросы кафедре и РИЦ: какие РПД переутверждаются, порог по ЛНА, компетенции, точка в заголовке главы"
+status = "ne_nachato"
+zhdet = "кафедра, РИЦ"
+
+[[razdel.punkt]]
+id = "Д5"
+nazvanie = "Пометки «[уточнить]» в черновике РПД (14)"
+status = "ne_nachato"
+zhdet = "преподаватель, кафедра"   # в rpd/RPD_2027_OPD_1kurs_chernovik.md
+
+[[razdel.punkt]]
+id = "Д6"
+nazvanie = "Инструмент <opd-wbs> в веб-версии (пилот, шаг 5)"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "Д7"
+nazvanie = "Источники: istochniki.bib, выходные данные PMBOK 8, команда /dp-istochniki"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "Д8"
+nazvanie = "Открыть рукопись docx в Microsoft Word"
+status = "ne_nachato"
+zhdet = "преподаватель (своя машина)"
+
+[[razdel.punkt]]
+id = "Д9"
+nazvanie = "Команда /dp-doc"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "Д10"
+nazvanie = "Литература главы 3.2 по ГОСТ Р 7.0.100–2018"
+status = "ne_nachato"
+zhdet = "CSL и вычитка 3.2"
 
 [[veha]]
 srok = 2026-11-30

@@ -27,6 +27,13 @@ ZAPRET = {
     r"\bна паре\b|\bзанятии? \d": "книга не привязана к расписанию занятий",
 }
 
+# Стиль (STIL.md): канцелярит -> предупреждение
+KANC = [
+    r"\bявля\w*ся\b", r"\bосуществл\w*", r"\bпроизвод\w*ся\b", r"\bданн(ый|ая|ое|ые|ого|ой|ом|ых)\b",
+    r"\bв рамках\b", r"\bс целью\b", r"\bв целях\b", r"\b(следует|важно|необходимо|стоит) отметить\b",
+    r"^Таким образом\b", r"\bв современном мире\b", r"\bна сегодняшний день\b", r"\bпредставля\w* собой\b",
+]
+
 
 def strip_code(lines):
     """Строки вне блоков кода и HTML-комментариев (номер, текст)."""
@@ -60,6 +67,17 @@ def check_qmd(path):
         for pat, why in ZAPRET.items():
             if not ln.startswith(("|", ":")) and re.search(pat, plain):
                 err.append(f"{i}: {why}: «{re.search(pat, plain).group(0)}»")
+        for pat in KANC:
+            if not ln.startswith(("|", ":")) and re.search(pat, plain, re.I | re.M):
+                warn.append(f"{i}: канцелярит — «{re.search(pat, plain, re.I | re.M).group(0)}» (STIL.md, 2)")
+        if re.match(r"#{1,3} .*\bне\b[^,]*, а\b", ln):
+            err.append(f"{i}: афоризм «не А, а Б» в заголовке (STIL.md, 2)")
+        if ln and not re.match(r"[|:#!<\-*>\s]|\d+\.|```", ln):
+            if len(plain) > 600:
+                warn.append(f"{i}: абзац {len(plain)} знаков > 600 (STIL.md, 2)")
+            for f in re.split(r"(?<=[.!?…])\s+(?=[А-ЯЁA-Z«])", plain):
+                if len(f.split()) > 25:
+                    warn.append(f"{i}: фраза {len(f.split())} слов > 25: «{' '.join(f.split()[:6])} …» (STIL.md, 2)")
         if re.match(r"#{4,} ", ln):
             err.append(f"{i}: рубрикация глубже трёх уровней")
         m = re.match(r"(#{1,3}) (.+?)\s*(\{.*\})?$", ln)

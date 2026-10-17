@@ -8,7 +8,7 @@ sleduyushchee = "/dp-glava 1.3 — шесть принципов на жизне
 
 # Настройки для /dp-brief и /dp-review (плагин pisatel): что читать, где хранить задания, чем проверять
 [nastrojki]
-pravila = ["CLAUDE.md", "docs/metodichka/PRAVILA_KONTENTA.md"]   # правила тона и содержания
+pravila = ["CLAUDE.md", "docs/metodichka/PRAVILA_KONTENTA.md", "docs/metodichka/STIL.md", "docs/metodichka/istochniki/README.md"]   # тон, содержание, стиль, источники
 struktura = "docs/metodichka/STRUKTURA.md"                         # оглавление и назначение шагов
 briefy = "docs/metodichka/briefy"                                  # папка заданий на главы
 chitatel = "студент 1 курса направления 03.03.01, впервые ведёт проект в команде; второй читатель — редактор РИЦ ГУАП"
@@ -33,7 +33,7 @@ status = "ne_nachato"
 id = "1.3"
 nazvanie = "Шесть принципов проектной работы"
 status = "ne_nachato"
-etap = "brief: ответы записаны; перед одобрением — STIL.md (стиль), затем istochniki/ (выписка pmi-heuer-2026 есть); дальше — одобрение задания, шаг 2 текст"
+etap = "brief: STIL.md черновик ждёт одобрения; выписка pmi-heuer-2026 есть; дальше — одобрение задания, шаг 2 текст"
 
 [[razdel.punkt]]
 id = "1.4"

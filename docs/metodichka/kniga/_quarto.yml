@@ -1,16 +1,15 @@
-# Книга: методические указания по проектной деятельности. Пилот — глава 3.2 (WBS).
+# Книга: методические указания по проектной деятельности. Готовы шаги 1.3 и 3.2 (пилот).
 # Сборка: ./build.sh  ->  _out/ (веб, рукопись docx для РИЦ, PDF А5)
 project:
   output-dir: _out
-  render: [glavy/3-2-wbs.qmd]
+  render: [glavy/1-3-principy.qmd, glavy/3-2-wbs.qmd]
 
 lang: ru
 bibliography: istochniki.bib
 csl: shablony/gost-r-7-0-5-2008-numeric.csl
 link-citations: false
 number-sections: true
-number-depth: 3
-number-offset: [2, 1]        # пилот: глава 3, параграф 3.2
+number-depth: 3                # number-offset и имя PDF А5 — в шапке каждой главы
 filters: [shablony/opd.lua]
 crossref:
   fig-title: "Рис."
@@ -29,7 +28,6 @@ format:
     reference-doc: shablony/reference.docx
     toc: false
   typst:
-    output-file: 3-2-wbs-a5.pdf
     mainfont: Times New Roman
     fontsize: 10.5pt
     section-numbering: "1.1.1"

@@ -4,8 +4,8 @@
 # npm-пакеты pagedjs, playwright-core, @vivliostyle/cli в /opt/stack/npm (см. ROADMAP.md, раздел «Что проверено»).
 set -euo pipefail
 cd "$(dirname "$0")"
-NPM=/opt/stack/npm/node_modules
-CHROME=/opt/pw-browsers/chromium-1194/chrome-linux/chrome
+NPM="${NPM:-/opt/stack/npm/node_modules}"   # пути облачной среды; на своей машине — переменные NPM и CHROME_PATH
+CHROME="${CHROME_PATH:-/opt/pw-browsers/chromium-1194/chrome-linux/chrome}"
 
 python3 risunki/wbs_tree.py
 python3 shablony/make_reference_docx.py

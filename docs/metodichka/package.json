@@ -1,0 +1,13 @@
+{
+  "name": "opd-metodichka",
+  "private": true,
+  "description": "Node-зависимости направления «методичка и РПД»: npm install в этой папке, затем NODE_PATH=docs/metodichka/node_modules",
+  "dependencies": {
+    "docx": "9.7.1"
+  },
+  "optionalDependencies": {
+    "pagedjs": "0.4.3",
+    "playwright-core": "1.64.1",
+    "@vivliostyle/cli": "11.3.3"
+  }
+}

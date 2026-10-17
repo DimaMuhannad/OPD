@@ -1,0 +1,2 @@
+# Python-зависимости направления «методичка и РПД»: pip install -r docs/metodichka/requirements.txt
+python-docx>=1.1

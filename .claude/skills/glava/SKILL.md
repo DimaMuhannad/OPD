@@ -32,7 +32,7 @@ description: Работа над главой (параграфом-шагом) 
 
 | № | Шаг | Результат | Проверка перед показом |
 |---|---|---|---|
-| 0 | Среда: `quarto --version`; если нет — `bash docs/metodichka/proba-steka/ustanovka.sh` (5–8 мин). Прочитать `docs/metodichka/STATE.md`, `PRAVILA_KONTENTA.md`, строку параграфа в `STRUKTURA.md`, конспект занятия (`zanyatiya/Zanyatie_NN_*_Konspekt.md`) | план параграфа: домен, принцип, процесс PMBOK 6, артефакт, вход/выход, практика РПД | совпадает со `STRUKTURA.md` |
+| 0 | Среда: `quarto --version`; если нет — в облаке `bash docs/metodichka/proba-steka/ustanovka.sh` (5–8 мин), на своей машине — `docs/metodichka/PEREEZD.md`. Прочитать `docs/metodichka/STATE.md`, `PRAVILA_KONTENTA.md`, строку параграфа в `STRUKTURA.md`, конспект занятия (`zanyatiya/Zanyatie_NN_*_Konspekt.md`) | план параграфа: домен, принцип, процесс PMBOK 6, артефакт, вход/выход, практика РПД | совпадает со `STRUKTURA.md` |
 | 1 | Список блоков шаблона шага v2 с одной фразой на блок | каркас | все 9 блоков; глава не кончается рисунком/таблицей |
 | 2 | Текст `kniga/glavy/<N>-<тема>.qmd` | текст по шаблону | `python3 kniga/proverka.py` — 0 ошибок; объём по типу издания (`STATE.md`) |
 | 3 | Рисунки `kniga/risunki/g<N>_<тема>.py` через `profil.py` | SVG/PDF, профили `ekran` и `pechat` | генератор сам проверяет 114×165 мм, 9 пт, шрифты PDF; **посмотреть PNG** |

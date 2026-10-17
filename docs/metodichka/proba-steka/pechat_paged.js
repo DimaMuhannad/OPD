@@ -5,7 +5,7 @@ const path = require("path");
 const [inp, out] = process.argv.slice(2);
 (async () => {
   const browser = await chromium.launch({
-    executablePath: "/opt/pw-browsers/chromium-1194/chrome-linux/chrome",
+    executablePath: process.env.CHROME_PATH || "/opt/pw-browsers/chromium-1194/chrome-linux/chrome",
     args: ["--allow-file-access-from-files"], // Paged.js читает CSS через XHR
   });
   const page = await browser.newPage();

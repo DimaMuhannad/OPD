@@ -198,12 +198,24 @@ def team_sheet(ws):
     ws["A2"].alignment = WRAP
     ws.merge_cells("A2:D2")
     ws.row_dimensions[2].height = 30
-    for col, head in zip("ABCD", ("Участник (имя и фамилия)", "Роль в команде: из списка или своя", "Пакетов", "Недель работы")):
+    for col, head in zip("ABCD", ("Участник (имя и фамилия)", "Роль в команде (список справа)", "Пакетов", "Недель работы")):
         c = ws[f"{col}4"]
         c.value, c.font, c.fill, c.alignment, c.border = head, font(bold=True, size=9), fill(HEAD), CENTER, BOX
-    # Список — только подсказка: своя роль команды принимается без предупреждения
-    dv = DataValidation(type="list", formula1='"лидер,аналитик,технический эксперт,коммуникатор"', allow_blank=True,
-                        showErrorMessage=False)
+    # Роли — список справа: четыре роли первого занятия и пустые строки для своих ролей команды
+    ws.column_dimensions["E"].width = 3
+    ws.column_dimensions["F"].width = 30
+    c = ws["F4"]
+    c.value, c.font, c.fill, c.alignment, c.border = "Роли команды (список)", font(bold=True, size=9), fill(HEAD), CENTER, BOX
+    for i, role in enumerate(["лидер", "аналитик", "технический эксперт", "коммуникатор", "", "", "", ""]):
+        c = ws.cell(row=5 + i, column=6, value=role or None)
+        c.border, c.font, c.alignment = BOX, font(), WRAP
+        if not role:
+            c.fill = fill("FFFFF9E1")
+    ws["F13"] = "Свою роль впишите в пустую строку выше — она появится в выпадающем списке «Роль»."
+    ws["F13"].font = font(size=9, italic=True, color=GREY)
+    ws["F13"].alignment = WRAP
+    ws.row_dimensions[13].height = 36
+    dv = DataValidation(type="list", formula1="$F$5:$F$12", allow_blank=True, showErrorMessage=False)
     ws.add_data_validation(dv)
     for r in range(5, 11):
         dv.add(f"B{r}")
@@ -229,8 +241,9 @@ def howto_sheet(ws):
         ("p", "Таблица повторяет оборот бланка WBS. Можно работать на бумаге, можно здесь — "
               "на следующую пару принесите лист или откройте файл: из пакетов будем строить диаграмму Ганта."),
         ("s", "Как заполнять"),
-        ("n", "1. Лист «Команда»: впишите участников и их роли. В списке — четыре роли с первого занятия; "
-              "если команда придумала свои роли, впишите их вручную."),
+        ("n", "1. Лист «Команда»: впишите участников и выберите роли. В списке «Роли команды» справа — четыре роли "
+              "с первого занятия; если команда придумала свои роли, впишите их в пустые строки этого списка — "
+              "они появятся в выпадающем меню."),
         ("n", "2. Лист «WBS», строка «Проект»: название и главный результат из паспорта."),
         ("n", "3. Крупные результаты — коды 1, 2, 3… Возьмите выбранные ветви дерева целей. "
               "Добавьте «Отчёт и защита» и «Управление проектом»: эту работу всё равно придётся сделать."),

@@ -14,12 +14,13 @@ from openpyxl.worksheet.datavalidation import DataValidation
 
 OUT = "zanyatiya/Zanyatie_06_WBS_Tablica.xlsx"
 
-# Палитра ГУАП (tools/marp/guap-brand/BRAND.md)
-BLUE, INK, GREEN, RED = "005AAA", "002C5F", "009A49", "E70F47"
-LIGHT, HEAD, GREY = "E6EFF8", "D9E6F3", "7F8C9A"
+# Палитра ГУАП (tools/marp/guap-brand/BRAND.md). Цвета — ARGB с FF: при альфе 00 Excel для телефона
+# рисует заливку не тем цветом
+BLUE, INK, GREEN, RED = "FF005AAA", "FF002C5F", "FF009A49", "FFE70F47"
+LIGHT, HEAD, GREY = "FFE6EFF8", "FFD9E6F3", "FF7F8C9A"
 FONT = "Arial"
 
-thin = Side(style="thin", color="B3B3B3")
+thin = Side(style="thin", color="FFB3B3B3")
 BOX = Border(left=thin, right=thin, top=thin, bottom=thin)
 WRAP = Alignment(wrap_text=True, vertical="top")
 CENTER = Alignment(horizontal="center", vertical="top", wrap_text=True)
@@ -140,7 +141,7 @@ def wbs_sheet(ws, title, rows=None, team_ref=None):
             cell.border = BOX
             cell.alignment = CENTER if col in "ABDGHI" else WRAP
             cell.font = font(color=GREY if col in "BDK" else INK)
-        ws[f"I{r}"].fill = fill("F4F6F8")
+        ws[f"I{r}"].fill = fill("FFF4F6F8")
 
     if rows:
         for n, (code, name, show, who, dur, unit) in enumerate(rows):

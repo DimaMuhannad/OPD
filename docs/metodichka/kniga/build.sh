@@ -22,7 +22,8 @@ kopiya() {  # kopiya <откуда> <куда>
   local a b
   case "$1" in
     *.pdf)  a=$(pdftotext "$1" - | md5sum); b=$( [ -f "$2" ] && pdftotext "$2" - | md5sum ) ;;
-    *.docx) a=$(unzip -p "$1" word/document.xml | md5sum); b=$( [ -f "$2" ] && unzip -p "$2" word/document.xml | md5sum ) ;;
+    *.docx) a=$(unzip -p "$1" word/document.xml 'word/media/*' | md5sum)   # текст и рисунки
+            b=$( [ -f "$2" ] && unzip -p "$2" word/document.xml 'word/media/*' | md5sum ) ;;
     *)      a=$(md5sum < "$1"); b=$( [ -f "$2" ] && md5sum < "$2" ) ;;
   esac
   if [ "$a" != "$b" ]; then cp "$1" "$2"; echo "обновлён $2"; fi

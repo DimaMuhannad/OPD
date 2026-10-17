@@ -27,6 +27,10 @@ ZAPRET = {
     r"\bна паре\b|\bзанятии? \d": "книга не привязана к расписанию занятий",
 }
 
+# Термины (PRAVILA_KONTENTA.md, 3): в тексте — русская адаптация; английский оригинал — один раз
+# в главе, в скобках «(англ. …)». Латиницей без скобок — только устоявшиеся названия:
+LAT_OK = {"PMBOK", "SMART", "SWOT", "PEST", "Scrum", "QR", "ProjectLibre", "GanttProject", "Google"}
+
 # Стиль (STIL.md): канцелярит -> предупреждение
 KANC = [
     r"\bявля\w*ся\b", r"\bосуществл\w*", r"\bпроизвод\w*ся\b", r"\bданн(ый|ая|ое|ые|ого|ой|ом|ых)\b",
@@ -55,12 +59,26 @@ def check_qmd(path):
     err, warn = [], []
     lines = open(path, encoding="utf-8").read().split("\n")
     body = strip_code(lines)
+    if lines and lines[0] == "---":  # YAML-шапка — не текст главы
+        end = lines.index("---", 1) + 1
+        body = [(i, ln) for i, ln in body if i > end]
     text = "\n".join(ln for _, ln in body)
 
+    angl = {}  # оригинал в скобках -> строка первого упоминания
     for i, ln in body:
         if ln.startswith("---") or ln.startswith("#|"):
             continue
+        if ln.startswith("## Библиографический список"):
+            break
         plain = re.sub(r"\{[^}]*\}|\(\.\./[^)]*\)|\[-?@[^\]]*\]|@\w[\w-]*", "", ln)
+        if not ln.startswith(":::"):
+            for m in re.finditer(r"\(англ\. ([^)]*)\)", plain):
+                if m.group(1) in angl:
+                    err.append(f"{i}: оригинал «{m.group(1)}» уже дан в строке {angl[m.group(1)]} — дальше только русский термин (PRAVILA_KONTENTA.md, 3)")
+                angl.setdefault(m.group(1), i)
+            lat = set(re.findall(r"[A-Za-z][A-Za-z’'-]*", re.sub(r"\(англ\. [^)]*\)|\]\([^)]*\)", "", plain))) - LAT_OK
+            if lat:
+                err.append(f"{i}: латиница в тексте — {', '.join(sorted(lat))}: русский термин, оригинал один раз «(англ. …)» (PRAVILA_KONTENTA.md, 3)")
         for pat, fix in TON.items():
             if re.search(pat, plain, re.I):
                 err.append(f"{i}: тон — «{re.search(pat, plain, re.I).group(0)}» → {fix}")

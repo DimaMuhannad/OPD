@@ -72,7 +72,7 @@ status = "ne_nachato"
 
 [[razdel.punkt]]
 id = "3.2"
-nazvanie = "Иерархическая структура работ (WBS)"
+nazvanie = "Иерархическая структура работ"
 status = "vychitka"
 fail = "docs/metodichka/kniga/glavy/3-2-wbs.qmd"
 zhdet = "преподаватель: вычитка; затем инструмент <opd-wbs> и показ РИЦ"

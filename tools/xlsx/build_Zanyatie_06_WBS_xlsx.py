@@ -134,7 +134,7 @@ def wbs_sheet(ws, title, rows=None, team_ref=None):
             f'IF(OR(ISNUMBER(SEARCH(",",F{r})),ISNUMBER(SEARCH(" и ",F{r})),LOWER(F{r})="все"),"ответственный — один человек",'
             f'IF(G{r}="","оцените длительность","✓"))))))))'
         )
-        ws[f"K{r}"] = f'=IF(AND(D{r}="пакет работ",ISNUMBER(G{r})),G{r}*IF(H{r}="дней",1/7,1),0)'
+        ws[f"K{r}"] = f'=IF(AND(D{r}="пакет работ",ISNUMBER(G{r})),G{r}*IF(LEFT(LOWER(H{r}),1)="д",1/7,1),0)'
         for col, _, _ in COLS:
             cell = ws[f"{col}{r}"]
             cell.border = BOX
@@ -151,11 +151,12 @@ def wbs_sheet(ws, title, rows=None, team_ref=None):
             ws[f"H{r}"] = unit
 
     # Выпадающие списки
-    dv_unit = DataValidation(type="list", formula1='"недель,дней"', allow_blank=True)
+    dv_unit = DataValidation(type="list", formula1='"недель,дней"', allow_blank=True, showErrorMessage=True,
+                             errorStyle="stop", errorTitle="Единица", error="Выберите из списка: недель или дней.")
     ws.add_data_validation(dv_unit)
     dv_unit.add(f"H{FIRST}:H{LAST}")
     if team_ref:
-        dv_who = DataValidation(type="list", formula1=team_ref, allow_blank=True, errorStyle="warning",
+        dv_who = DataValidation(type="list", formula1=team_ref, allow_blank=True, showErrorMessage=True, errorStyle="warning",
                                 error="Этого человека нет на листе «Команда». Ответственный — один человек.",
                                 errorTitle="Ответственный")
         ws.add_data_validation(dv_who)

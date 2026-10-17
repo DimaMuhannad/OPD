@@ -12,7 +12,8 @@ pravila = ["CLAUDE.md", "docs/metodichka/PRAVILA_KONTENTA.md", "docs/metodichka/
 struktura = "docs/metodichka/STRUKTURA.md"                         # оглавление и назначение шагов
 briefy = "docs/metodichka/briefy"                                  # папка заданий на главы
 chitatel = "студент 1 курса направления 03.03.01, впервые ведёт проект в команде; второй читатель — редактор РИЦ ГУАП"
-proverki = ["python3 docs/metodichka/kniga/proverka.py"]          # автопроверки до вычитки
+proverki = ["python3 docs/metodichka/kniga/proverka.py", "python3 docs/metodichka/kniga/shablony/test-csl/proverka_csl.py"]   # автопроверки до вычитки
+cheklist = "docs/metodichka/VYCHITKA.md"                           # чек-лист вычитки по проходам, уровни К / С / М
 
 [[razdel]]
 id = "kniga"

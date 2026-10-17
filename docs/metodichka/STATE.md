@@ -63,6 +63,11 @@
 
 ## Решения
 
+- 17.10 — **чек-лист вычитки** `VYCHITKA.md` (+ .docx для печати): девять проходов от замысла к корректуре, уровни
+  замечаний К / С / М, таблица замечаний `briefy/<N>-zamechaniya.md`; примечания на полях docx переносятся
+  скриптом `tools/pisatel/scripts/zamechaniya_docx.py`. `/dp-review` идёт по чек-листу (`cheklist` в `progress.toml`,
+  pisatel 0.5.0).
+
 - 17.10 — **свой CSL под ГОСТ Р 7.0.100–2018** (`kniga/shablony/gost-r-7-0-100-2018-numeric.csl`), прежний стиль
   ГОСТ Р 7.0.5–2008 убран из книги. Эталон из 11 записей и проверка соглашений `istochniki.bib` —
   `shablony/test-csl/proverka_csl.py`, в `build.sh`. PDF А5 теперь тоже строит список через pandoc (`citeproc: true`):

@@ -11,6 +11,7 @@ struktura = "docs/STRUKTURA.md"               # оглавление и назн
 briefy = "docs/briefy"                        # папка заданий на главы
 chitatel = "кто читает текст и что он уже знает"
 proverki = []                                 # команды автопроверок, например ["python3 tools/lint.py"]
+cheklist = ""                                 # чек-лист вычитки по проходам (необязательно), например "docs/VYCHITKA.md"
 
 [[razdel]]
 id = "kniga"

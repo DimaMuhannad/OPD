@@ -1,0 +1,7 @@
+/* Веб-версия: палитра ГУАП (tools/marp/guap-brand/BRAND.md), Arial */
+body { font-family: Arial, sans-serif; color: #002C5F; }
+h1, h2, h3 { color: #005AAA; }
+.vrezka { border-left: 4px solid #005AAA; background: #FFFFFF; padding: .5em 1em; margin: 1em 0;
+  box-shadow: 0 0 0 1px #005AAA inset; }
+.vrezka p { margin: .2em 0; }
+figure img { max-width: 100%; }

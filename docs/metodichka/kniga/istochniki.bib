@@ -1,19 +1,23 @@
+% Источники книги. Описание строит стиль shablony/gost-r-7-0-100-2018-numeric.csl (ГОСТ Р 7.0.100–2018).
+% Соглашения (проверяет shablony/test-csl/proverka_csl.py):
+%   langid = {english} — только у иностранных источников; у русских langid нет;
+%   keywords = {bez-zagolovka} — четыре автора и больше (описание начинается с заглавия);
+%   организация (PMI и т. п.) — не author, а publisher; edition — как в издании («6-е изд.», «3rd ed.»).
+% Объём и ISBN — только по экземпляру; неизвестное не заполнять (STATE.md, «[уточнить]»).
+
 @book{pmbok6,
-  author    = {{Project Management Institute}},
-  title     = {A Guide to the Project Management Body of Knowledge (PMBOK Guide)},
-  edition   = {6},
+  title     = {Руководство к своду знаний по управлению проектами (Руководство PMBOK)},
+  edition   = {6-е изд.},
+  location  = {Ньютаун-Сквер, Пенсильвания},
   publisher = {Project Management Institute},
-  address   = {Newtown Square, PA},
-  year      = {2017},
-  langid    = {english}
+  year      = {2017}
 }
 
 @book{pmi-wbs,
-  author    = {{Project Management Institute}},
   title     = {Practice Standard for Work Breakdown Structures},
-  edition   = {3},
+  edition   = {3rd ed.},
+  location  = {Newtown Square, PA},
   publisher = {Project Management Institute},
-  address   = {Newtown Square, PA},
   year      = {2019},
   langid    = {english}
 }
@@ -21,8 +25,10 @@
 @misc{pmi-heuer-2026,
   author    = {Heuer, Kelly},
   title     = {Evolution of the PMBOK Guide},
-  howpublished = {Presentation, Project Management Institute; NTT Data},
+  type      = {presentation},
+  publisher = {NTT Data},
   year      = {2026},
+  pagetotal = {36 slides},
   url       = {https://www.nttdata.com/global/en/-/media/nttdataglobal/1_files/insights/focus/021/the-evolution-of-the-pmbok-guide-introducing-the-8th-edition-by-kelly-heuer.pdf},
   urldate   = {2026-10-17},
   langid    = {english}

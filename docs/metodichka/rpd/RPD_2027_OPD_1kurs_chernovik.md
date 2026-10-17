@@ -175,8 +175,8 @@
 
 8. Doran, G. T. There's a S.M.A.R.T. way to write management's goals and objectives / G. T. Doran // Management Review. – 1981. – Vol. 70, № 11. – P. 35–36.
 9. Tuckman, B. W. Developmental sequence in small groups / B. W. Tuckman // Psychological Bulletin. – 1965. – Vol. 63, № 6. – P. 384–399.
-10. Belbin, R. M. Management Teams: Why They Succeed or Fail / R. M. Belbin. – 3rd ed. – Oxford : Butterworth-Heinemann, 2010. – [уточнить: объём].
-11. Osterwalder, A. Value Proposition Design / A. Osterwalder, Y. Pigneur, G. Bernarda, A. Smith. – Hoboken : Wiley, 2014. – [уточнить: объём].
+10. Belbin, R. M. Management Teams : Why They Succeed or Fail / R. M. Belbin. – 3rd ed. – Oxford : Butterworth-Heinemann, 2010. – [уточнить: объём].
+11. Value Proposition Design / A. Osterwalder, Y. Pigneur, G. Bernarda, A. Smith. – Hoboken : Wiley, 2014. – [уточнить: объём].
 
 Из действующих списков предлагается оставить издания 2022–2025 годов, доступные в ЭБС ГУАП, и убрать пособия, которые повторяют друг друга. [уточнить: что есть в библиотеке ГУАП].
 

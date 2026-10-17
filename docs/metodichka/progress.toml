@@ -4,7 +4,7 @@
 
 proekt = "Методические указания и РПД 2027"
 obnovleno = 2026-10-17
-sleduyushchee = "вычитка 1.3 и 3.2 (преподаватель); без преподавателя — CSL под ГОСТ Р 7.0.100–2018"
+sleduyushchee = "вычитка 1.3, 3.2 и списка литературы (преподаватель); без преподавателя — Д6 <opd-wbs>"
 
 # Настройки для /dp-brief и /dp-review (плагин pisatel): что читать, где хранить задания, чем проверять
 [nastrojki]
@@ -163,7 +163,9 @@ fail = "docs/metodichka/kniga/build.sh"
 [[razdel.punkt]]
 id = "CSL"
 nazvanie = "Стиль библиографии по ГОСТ Р 7.0.100–2018"
-status = "ne_nachato"
+status = "vychitka"
+fail = "docs/metodichka/kniga/shablony/gost-r-7-0-100-2018-numeric.csl"
+zhdet = "преподаватель: посмотреть список литературы в 1.3 и 3.2"
 
 [[razdel.punkt]]
 id = "Vvod"
@@ -263,8 +265,8 @@ status = "ne_nachato"
 [[razdel.punkt]]
 id = "Д10"
 nazvanie = "Литература главы 3.2 по ГОСТ Р 7.0.100–2018"
-status = "ne_nachato"
-zhdet = "CSL и вычитка 3.2"
+status = "vychitka"
+zhdet = "вычитка 3.2; объём и ISBN PMBOK 6 — по экземпляру"
 
 [[veha]]
 srok = 2026-11-30

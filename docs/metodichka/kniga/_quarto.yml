@@ -6,7 +6,7 @@ project:
 
 lang: ru
 bibliography: istochniki.bib
-csl: shablony/gost-r-7-0-5-2008-numeric.csl
+csl: shablony/gost-r-7-0-100-2018-numeric.csl
 link-citations: false
 number-sections: true
 number-depth: 3                # number-offset и имя PDF А5 — в шапке каждой главы
@@ -28,6 +28,7 @@ format:
     reference-doc: shablony/reference.docx
     toc: false
   typst:
+    citeproc: true             # описание строит pandoc по нашему CSL; у Typst свой движок, он ошибается на ГОСТе
     mainfont: Times New Roman
     fontsize: 10.5pt
     section-numbering: "1.1.1"

@@ -8,6 +8,7 @@ export SOURCE_DATE_EPOCH="${SOURCE_DATE_EPOCH:-$(git log -1 --format=%ct)}"  # d
 python3 risunki/g3_2_wbs.py            # упадёт, если печатный рисунок шире 114 мм или не тем шрифтом
 python3 shablony/make_reference_docx.py 2>/dev/null   # шаблон рукописи генерируется, в git не хранится
 python3 proverka.py                     # тон, даты, подписи, ссылки, рубрикация, рисунки
+python3 shablony/test-csl/proverka_csl.py  # стиль ГОСТ Р 7.0.100–2018 по эталону + соглашения istochniki.bib
 
 GLAVY="1-3-principy 3-2-wbs"           # готовые шаги; новая глава — сюда и в _quarto.yml
 for g in $GLAVY; do

@@ -15,7 +15,7 @@
 
 | PMBOK 8 (англ.) | Перевод, который используем |
 | --- | --- |
-| Principles: Adopt a Holistic View · Focus on Value · Embed Quality · Be an Accountable Leader · Integrate Sustainability · Build an Empowered Culture | Принципы: целостный взгляд · ориентация на ценность · встроенное качество · ответственное лидерство · учёт устойчивого развития · культура доверия и самостоятельности |
+| Principles (переводы **утверждены 17.10**): Adopt a Holistic View · Focus on Value · Embed Quality · Be an Accountable Leader · Integrate Sustainability · Build an Empowered Culture | Принципы: целостный взгляд · ориентация на ценность · встроенное качество · ответственное лидерство · учёт устойчивого развития · культура доверия и самостоятельности |
 | Performance Domains: Governance · Scope · Schedule · Finance · Stakeholders · Resources · Risk | Домены практики: управление и надзор · содержание · расписание · финансы · заинтересованные стороны · ресурсы · риски |
 | Focus Areas: Initiating · Planning · Executing · Monitoring and Controlling · Closing | Области фокуса = **5 фаз жизненного цикла вводной лекции**: инициация · планирование · исполнение · мониторинг и контроль · завершение |
 

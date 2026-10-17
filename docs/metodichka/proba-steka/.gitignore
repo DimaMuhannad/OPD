@@ -1,0 +1,4 @@
+_out/
+wbs_files/
+.quarto/
+*.log

@@ -1,0 +1,8 @@
+# Профиль «печать через CSS» (Paged.js, Vivliostyle): HTML без Bootstrap и скриптов, стиль А5.
+# Запуск: quarto render wbs.qmd --to html --profile pechat
+format:
+  html:
+    minimal: true
+    embed-resources: false
+    css: a5-paged.css
+    output-file: wbs-css.html

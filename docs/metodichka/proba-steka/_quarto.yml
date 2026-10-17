@@ -1,0 +1,26 @@
+project:
+  output-dir: _out
+
+format:
+  html:
+    toc: false
+    embed-resources: true
+  docx:
+    reference-doc: shablony/reference.docx
+  typst:
+    output-file: wbs-typst-a5.pdf
+    mainfont: Times New Roman
+    fontsize: 10.5pt
+    template-partials: [shablony/page.typ]
+    include-before-body:
+      - file: shablony/a5.typ
+  pdf:
+    output-file: wbs-latex-a5.pdf
+    pdf-engine: xelatex
+    documentclass: extbook
+    classoption: [a5paper, twoside, 10pt, openany]
+    geometry: [inner=20mm, outer=14mm, top=20mm, bottom=25mm]
+    mainfont: Times New Roman
+    cite-method: biblatex
+    biblio-style: gost-numeric
+    biblatexoptions: [backend=biber, language=auto, autolang=other]

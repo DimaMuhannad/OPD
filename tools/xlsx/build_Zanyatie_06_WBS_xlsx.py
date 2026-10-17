@@ -25,7 +25,7 @@ BOX = Border(left=thin, right=thin, top=thin, bottom=thin)
 WRAP = Alignment(wrap_text=True, vertical="top")
 CENTER = Alignment(horizontal="center", vertical="top", wrap_text=True)
 
-FIRST, LAST = 7, 66  # строки данных WBS
+HEADER, FIRST, LAST = 2, 3, 62  # шапка и строки данных WBS
 
 # (столбец, заголовок, ширина)
 COLS = [
@@ -77,50 +77,37 @@ def wbs_sheet(ws, title, rows=None, team_ref=None):
         ws.column_dimensions[col].width = w
     ws.column_dimensions["K"].hidden = True
 
-    ws["A1"] = title
-    ws["A1"].font = font(size=14, bold=True, color=BLUE)
-    ws["A2"] = "Проект:"
-    ws["A2"].font = font(bold=True)
-    ws.merge_cells("B2:E2")
-    ws["B2"].border = Border(bottom=Side(style="thin", color=INK))
-    ws["B2"].font = font(size=11)
+    # Верх — две строки: «Проект» и сводка, затем шапка. Закреплены только они: на планшете высокая
+    # закреплённая область уезжает за край экрана (замечание 17.10)
+    ws["A1"] = "Проект:"
+    ws["A1"].font = font(bold=True)
+    ws.merge_cells("B1:E1")
+    ws["B1"].border = Border(bottom=Side(style="thin", color=INK))
+    ws["B1"].font = font(size=11)
     if rows:
-        ws["B2"] = "Умный горшок: датчик влажности с индикатором"
-
-    # Сводка: подпись в одной строке, значение под ней
-    a, b = f"$A${FIRST}:$A${LAST}", f"$B${FIRST}:$B${LAST}"
-    c, d, j, k = (f"${x}${FIRST}:${x}${LAST}" for x in "CDJK")
-    summary = [
-        ("A", "Результатов", f"=COUNTIFS({b},1)"),
-        ("C", "Пакетов работ", f'=COUNTIF({d},"пакет работ")'),
-        ("D", "Замечаний", f'=COUNTIF({j},"?*")-COUNTIF({j},"✓")'),
-        ("E", "«Отчёт и защита»", f'=IF(COUNTIFS({b},1,{c},"*отч*")>0,"✓ есть","добавьте")'),
-        ("F", "«Управление проектом»", f'=IF(COUNTIFS({b},1,{c},"*управл*")>0,"✓ есть","добавьте")'),
-        ("G", "Сумма, недель", f"=ROUND(SUM({k}),1)"),
-    ]
-    for col, label, formula in summary:
-        ws[f"{col}3"] = label
-        ws[f"{col}3"].font = font(size=9, color=GREY)
-        ws[f"{col}4"] = formula
-        ws[f"{col}4"].font = font(size=12, bold=True, color=BLUE)
-        ws[f"{col}3"].alignment = ws[f"{col}4"].alignment = Alignment(horizontal="left", vertical="top")
-    ws.merge_cells("A3:B3")
-    ws.merge_cells("A4:B4")
-    ws.merge_cells("G3:H3")
-    ws.merge_cells("G4:H4")
-    ws["I3"] = "Сумма — если делать всё по очереди. Реальный срок покажет диаграмма Ганта."
-    ws["I3"].font = font(size=9, italic=True, color=GREY)
-    ws["I3"].alignment = WRAP
-    ws.merge_cells("I3:J4")
+        ws["B1"] = "Умный горшок: датчик влажности с индикатором (пример)"
+    a, b, c, d, j, k = (f"${x}${FIRST}:${x}${LAST}" for x in "ABCDJK")
+    ws["F1"] = (f'="Результатов: "&COUNTIFS({b},1)&"  ·  пакетов: "&COUNTIF({d},"пакет работ")'
+                f'&"  ·  замечаний: "&(COUNTIF({j},"?*")-COUNTIF({j},"✓"))'
+                f'&"  ·  отчёт и защита: "&IF(COUNTIFS({b},1,{c},"*отч*")>0,"✓","добавьте")'
+                f'&"  ·  управление проектом: "&IF(COUNTIFS({b},1,{c},"*управл*")>0,"✓","добавьте")'
+                f'&"  ·  сумма: "&ROUND(SUM({k}),1)&" нед. по очереди (реальный срок покажет Ганта)"')
+    ws["F1"].font = font(bold=True, color=BLUE)
+    ws["F1"].alignment = Alignment(wrap_text=True, vertical="center")
+    ws.merge_cells("F1:J1")
+    ws.row_dimensions[1].height = 34
+    ws.conditional_formatting.add("F1", FormulaRule(
+        formula=[f'OR(ISNUMBER(SEARCH("добавьте",$F$1)),COUNTIF({j},"?*")-COUNTIF({j},"✓")>0)'],
+        font=Font(color=RED, bold=True)))
 
     for i, (col, head, _) in enumerate(COLS):
-        cell = ws[f"{col}6"]
+        cell = ws[f"{col}{HEADER}"]
         cell.value = head
         cell.font = font(bold=True, size=9)
         cell.fill = fill(HEAD)
         cell.alignment = CENTER
         cell.border = BOX
-    ws.row_dimensions[6].height = 42
+    ws.row_dimensions[HEADER].height = 42
 
     for r in range(FIRST, LAST + 1):
         ws[f"A{r}"].number_format = "@"  # «1.10» не превратится в число 1,1
@@ -171,12 +158,9 @@ def wbs_sheet(ws, title, rows=None, team_ref=None):
         formula=[f'AND(J{FIRST}<>"",J{FIRST}<>"✓")'], font=Font(color=RED, bold=True)))
     ws.conditional_formatting.add(f"J{FIRST}:J{LAST}", FormulaRule(
         formula=[f'J{FIRST}="✓"'], font=Font(color=GREEN, bold=True)))
-    for cell in ("E4", "F4"):
-        ws.conditional_formatting.add(cell, FormulaRule(formula=[f'{cell}="добавьте"'], font=Font(color=RED, bold=True)))
-    ws.conditional_formatting.add("D4", FormulaRule(formula=["D4>0"], font=Font(color=RED, bold=True)))
 
-    ws.freeze_panes = f"B{FIRST}"
-    ws.print_title_rows = "6:6"
+    ws.freeze_panes = f"A{FIRST}"
+    ws.print_title_rows = f"1:{HEADER}"
     ws.page_setup.orientation = "landscape"
     ws.page_setup.paperSize = ws.PAPERSIZE_A4
     ws.page_setup.fitToWidth, ws.page_setup.fitToHeight = 1, 0

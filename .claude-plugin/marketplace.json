@@ -1,0 +1,15 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "opd",
+  "description": "Инструменты курса проектной деятельности ГУАП: плагин pisatel для книг и документов в соавторстве с ИИ",
+  "owner": {
+    "name": "Д. А. Попов"
+  },
+  "plugins": [
+    {
+      "name": "pisatel",
+      "source": "./tools/pisatel",
+      "description": "Прогресс, задания на главы, вычитка и мелкие документы в соавторстве с ИИ"
+    }
+  ]
+}

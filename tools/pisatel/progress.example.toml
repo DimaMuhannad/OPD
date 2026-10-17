@@ -1,0 +1,38 @@
+# Образец progress.toml для плагина pisatel. Скопируйте в docs/<проект>/progress.toml и заполните.
+# Статусы пунктов: ne_nachato · brif (задание) · chernovik · vychitka (ждёт человека) · odobreno.
+
+proekt = "Название проекта"
+obnovleno = 2026-01-01
+# sleduyushchee = "/glava 1.1 — первая глава"   # если не задано — первый пункт «не начато»
+
+[[razdel]]
+id = "kniga"
+nazvanie = "Книга"
+komanda = "/glava"            # команда, которой продвигается раздел (для подсказки «Дальше»)
+
+[[razdel.punkt]]
+id = "1.1"
+nazvanie = "Первый параграф"
+status = "chernovik"
+fail = "docs/kniga/glavy/1-1.qmd"   # путь от корня репозитория: скрипт сверит, что файл есть
+
+[[razdel.punkt]]
+id = "1.2"
+nazvanie = "Второй параграф"
+status = "ne_nachato"
+
+[[razdel]]
+id = "doc"
+nazvanie = "Мелкие документы"
+
+[[razdel.punkt]]
+id = "pismo-ric"
+nazvanie = "Письмо в редакцию"
+status = "vychitka"
+zhdet = "автор: подпись"
+
+[[veha]]
+srok = 2026-12-01
+nazvanie = "Сдача рукописи"
+kto = "автор"
+# status = "sdelano"

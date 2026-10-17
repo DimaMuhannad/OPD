@@ -1,0 +1,226 @@
+# Прогресс направления «методичка и РПД». Читает /progress (плагин pisatel, tools/pisatel/).
+# Статусы: ne_nachato · brif (задание на главу) · chernovik · vychitka (ждёт преподавателя) · odobreno.
+# Обновлять сразу после шага работы: навыки /glava и /rpd делают это сами.
+
+proekt = "Методические указания и РПД 2027"
+obnovleno = 2026-10-17
+sleduyushchee = "/glava 1.3 — шесть принципов на жизненных примерах (или введение)"
+
+[[razdel]]
+id = "kniga"
+nazvanie = "Книга (23 шага)"
+komanda = "/glava"
+
+[[razdel.punkt]]
+id = "1.1"
+nazvanie = "Проект отличается от процесса: четыре признака, железный треугольник, пять фаз жизненного цикла"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "1.2"
+nazvanie = "Подходы к управлению проектом: предиктивный, адаптивный, гибридный"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "1.3"
+nazvanie = "Шесть принципов проектной работы"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "1.4"
+nazvanie = "Команда и два концепта проекта"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "2.1"
+nazvanie = "Проблема, ценностное предложение и выбор концепта"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "2.2"
+nazvanie = "SMART-цель"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "2.3"
+nazvanie = "Паспорт проекта"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "2.4"
+nazvanie = "Заинтересованные стороны и разговоры с ними"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "2.5"
+nazvanie = "Решение «идём / не идём»"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "3.1"
+nazvanie = "Дерево проблем и дерево целей"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "3.2"
+nazvanie = "Иерархическая структура работ (WBS)"
+status = "vychitka"
+fail = "docs/metodichka/kniga/glavy/3-2-wbs.qmd"
+zhdet = "преподаватель: вычитка; затем инструмент <opd-wbs> и показ РИЦ"
+
+[[razdel.punkt]]
+id = "3.3"
+nazvanie = "Календарный план, критический путь, диаграмма Ганта"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "3.4"
+nazvanie = "Ресурсы и смета"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "3.5"
+nazvanie = "Риски"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "3.6"
+nazvanie = "Сводный план проекта"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "4.1"
+nazvanie = "Роли, стадии развития команды, договорённости и конфликты"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "4.2"
+nazvanie = "Коммуникации и журнал проекта"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "5.1"
+nazvanie = "Отклонения: сравнение плана с фактом"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "5.2"
+nazvanie = "Изменения в проекте и вторая версия плана"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "6.1"
+nazvanie = "Приёмка результата и экспертиза проекта"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "6.2"
+nazvanie = "Отчёт"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "6.3"
+nazvanie = "Питч-защита"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "6.4"
+nazvanie = "Извлечённые уроки и что дальше"
+status = "ne_nachato"
+
+[[razdel]]
+id = "osnova"
+nazvanie = "Основа книги"
+
+[[razdel.punkt]]
+id = "S"
+nazvanie = "Структура (6 глав, 23 шага)"
+status = "odobreno"
+fail = "docs/metodichka/STRUKTURA.md"
+
+[[razdel.punkt]]
+id = "P"
+nazvanie = "Правила содержания (PMBOK 8 + 6, ГОСТ Р 7.0.100–2018)"
+status = "odobreno"
+fail = "docs/metodichka/PRAVILA_KONTENTA.md"
+
+[[razdel.punkt]]
+id = "T"
+nazvanie = "Стек и сборка (Quarto → docx / Typst / HTML)"
+status = "odobreno"
+fail = "docs/metodichka/kniga/build.sh"
+
+[[razdel.punkt]]
+id = "CSL"
+nazvanie = "Стиль библиографии по ГОСТ Р 7.0.100–2018"
+status = "ne_nachato"
+
+[[razdel.punkt]]
+id = "Vvod"
+nazvanie = "Введение, аннотация, заключение, приложения А–Г"
+status = "ne_nachato"
+
+[[razdel]]
+id = "rpd"
+nazvanie = "РПД 2027"
+komanda = "/rpd"
+
+[[razdel.punkt]]
+id = "Р0"
+nazvanie = "Порядок работы с составителем"
+status = "odobreno"
+
+[[razdel.punkt]]
+id = "Р1"
+nazvanie = "Сверка рамок: ЛНА о баллах, компетенции, расписание"
+status = "ne_nachato"
+zhdet = "кафедра, руководитель ОП"
+
+[[razdel.punkt]]
+id = "Р2"
+nazvanie = "Документ предложений составителю"
+status = "chernovik"
+fail = "docs/metodichka/rpd/RPD_2027_OPD_1kurs_chernovik.md"
+
+[[razdel.punkt]]
+id = "Р3"
+nazvanie = "Оценочные средства: рубрики, банк тестов"
+status = "chernovik"
+
+[[razdel.punkt]]
+id = "Р4"
+nazvanie = "Черновик составителя, кафедра, утверждение"
+status = "ne_nachato"
+zhdet = "составитель, кафедра"
+
+[[veha]]
+srok = 2026-11-30
+nazvanie = "Разговор с РИЦ, заявка в издательский план 2027"
+kto = "преподаватель"
+
+[[veha]]
+srok = 2026-12-15
+nazvanie = "Предложения по РПД — составителю"
+kto = "преподаватель"
+
+[[veha]]
+srok = 2026-12-31
+nazvanie = "Пилот WBS показан РИЦ"
+kto = "преподаватель"
+
+[[veha]]
+srok = 2027-02-10
+nazvanie = "Заседание кафедры: РПД 2027"
+kto = "кафедра"
+
+[[veha]]
+srok = 2027-05-31
+nazvanie = "Цифровая версия β"
+
+[[veha]]
+srok = 2027-06-30
+nazvanie = "Рукопись и рецензия"
+
+[[veha]]
+srok = 2027-09-30
+nazvanie = "Комплект в РИЦ"

@@ -38,7 +38,7 @@ description: Работа над главой (параграфом-шагом) 
 | 3 | Рисунки `kniga/risunki/g<N>_<тема>.py` через `profil.py` | SVG/PDF, профили `ekran` и `pechat` | генератор сам проверяет 114×165 мм, 9 пт, шрифты PDF; **посмотреть PNG** |
 | 4 | Сборка `kniga/build.sh` (добавить главу в `_quarto.yml` → `render` и в `build.sh`) | веб, docx для РИЦ, PDF А5 | `posle_docx.py` без замечаний; PDF А5 — **посмотреть развороты**; шрифты только Times New Roman |
 | 5 | Показ преподавателю: PDF А5 и docx (`SendUserFile`) | одобрение или правки | — |
-| 6 | Коммит, пуш; `docs/metodichka/STATE.md` — что сделано, что открыто | | |
+| 6 | `docs/metodichka/progress.toml`: статус параграфа (`chernovik` → `vychitka` после показа → `odobreno` только после «да»), `fail`, `sleduyushchee`; `/progress` без расхождений. Коммит, пуш; `docs/metodichka/STATE.md` — что сделано, что открыто | | |
 
 ## Связи: правка тянет за собой
 

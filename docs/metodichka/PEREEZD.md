@@ -52,7 +52,18 @@ Windows: удобнее всего через **WSL (Ubuntu)** — тогда р
 
 В облачной среде вместо этого работает `proba-steka/ustanovka.sh`; на своей машине он не нужен.
 
-## 4. Проверка после переезда
+## 4. Плагин pisatel (прогресс и общие команды)
+
+Плагин лежит в репозитории (`tools/pisatel/`, описание — `tools/pisatel/README.md`). Ставится один раз на машину и работает во всех ваших проектах:
+
+```bash
+claude plugin marketplace add /путь/к/OPD
+claude plugin install pisatel@opd
+```
+
+Проверка: в Claude Code команда `/progress` показывает прогресс по `docs/metodichka/progress.toml`. Без Claude Code: `python3 tools/pisatel/scripts/progress.py docs/metodichka/progress.toml`.
+
+## 5. Проверка после переезда
 
 ```bash
 cd docs/metodichka/kniga && ./build.sh      # в конце: «Ошибок: 0», PDF и docx только на Times New Roman
@@ -62,7 +73,7 @@ git status                                   # пусто: сборка не д�
 
 Если `git status` после сборки показывает изменения в `rezultat/`, значит, изменилось содержимое. Тогда посмотреть, что именно: другая версия Quarto, Graphviz или шрифтов может дать другие переносы строк.
 
-## 5. Известные ловушки
+## 6. Известные ловушки
 
 - **Graphviz и «Times New Roman».** Шрифт задаётся как `Times New Roman,` с запятой (функция `pango()` в `kniga/risunki/profil.py`). Генератор проверяет шрифты печатного PDF и остановит сборку, если подставится другой. На Windows без WSL Graphviz может искать шрифты иначе — проверка это покажет.
 - **Версии.** Проверено на Quarto 1.8.26 (Typst 0.13 внутри), Graphviz 2.43, Pandoc 3.6. Исправления дефектов Quarto в `posle_docx.py` рассчитаны на 1.8. Если в новой версии дефекты исчезнут, скрипт просто ничего не исправит.

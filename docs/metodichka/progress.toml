@@ -33,6 +33,7 @@ status = "ne_nachato"
 id = "1.3"
 nazvanie = "Шесть принципов проектной работы"
 status = "ne_nachato"
+etap = "brief: ответы записаны; перед одобрением — STIL.md (стиль), затем istochniki/ (выписка pmi-heuer-2026 есть); дальше — одобрение задания, шаг 2 текст"
 
 [[razdel.punkt]]
 id = "1.4"

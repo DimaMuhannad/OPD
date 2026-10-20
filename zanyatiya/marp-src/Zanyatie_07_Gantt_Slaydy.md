@@ -28,9 +28,9 @@ class: v2
 
 <div class="roadmap">
 <div class="stop"><div class="d">26.09 · 03.10</div><div class="t">Тема зафиксирована</div><div class="r">Паспорт сдан</div><div class="pts">10 баллов</div></div>
-<div class="stop here"><div class="d">31.10</div><div class="t">План собран</div><div class="r">WBS, Ганта, смета, риски</div><div class="pts">10 баллов</div></div>
+<div class="stop here"><div class="d">31.10</div><div class="t">План собран</div><div class="r">WBS (структура работ), Ганта, смета, риски</div><div class="pts">10 баллов</div></div>
 <div class="stop"><div class="d">21.11</div><div class="t">Чекпоинт (контрольная точка)</div><div class="r">Промежуточный результат</div><div class="pts">10 баллов</div></div>
-<div class="stop"><div class="d">26.12</div><div class="t">Питч-защита</div><div class="r">Результат, отчёт, защита</div><div class="pts">50 баллов</div></div>
+<div class="stop"><div class="d">26.12</div><div class="t">Питч-защита (выступление)</div><div class="r">Результат, отчёт, защита</div><div class="pts">50 баллов</div></div>
 </div>
 <div class="tests">Два зачётных теста по 10 баллов: «Инициация» — написан, «Планирование и контроль» — 28.11. Итого 100 баллов</div>
 

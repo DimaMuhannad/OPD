@@ -39,7 +39,24 @@ def lines(p):
     return p.read_text(encoding="utf-8").split("\n")
 
 
+# Англицизмы: при первом упоминании в документе — русский аналог в скобках (CLAUDE.md, 20.10)
+ANGLICISMS = r"милстоун|чекпоинт|питч|буфер|дедлайн|скоуп|бэклог|спринт|фидбек|апрув|WBS|SWOT|PEST"
+
+
+def check_anglicisms(p, L):
+    seen = set()
+    for i, s in enumerate(L, 1):
+        for m in re.finditer(ANGLICISMS, s, re.I):
+            key = m.group(0).lower()[:5]
+            if key in seen:
+                continue
+            seen.add(key)
+            if "(" not in s[m.end(): m.end() + 45]:
+                add("ВНИМАНИЕ", p, i, f"англицизм «{m.group(0)}» — при первом упоминании русский аналог в скобках", s)
+
+
 def check_common(p, L, tone=True, numbers=True):
+    check_anglicisms(p, L)
     for i, s in enumerate(L, 1):
         low = s.lower()
         if re.search(r"\b[АA]3\b", s):

@@ -192,8 +192,10 @@ def sheet():
     for w in range(9):
         x = LW + 20 + w * C
         b += f'<line x1="{x}" y1="56" x2="{x}" y2="{56 + 7 * R}" stroke="{LINE}" stroke-width="1.5"/>'
-    b += bar(LW + 20 + 2 * C + 3, 56 + R + 7, 2 * C - 6, INK, h=26, dash=True)
-    b += text(300, 408, ["красным — критический путь"], 18, RED, True)
+    b += ('<defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" '
+          f'patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="{INK}" stroke-width="3"/></pattern></defs>')
+    b += bar(LW + 20 + 2 * C + 3, 56 + R + 7, 2 * C - 6, INK, h=26, dash=True, fill="url(#hatch)")
+    b += text(300, 408, ["штриховкой — критический путь"], 18, INK, True)
     return svg(600, 430, b)
 
 

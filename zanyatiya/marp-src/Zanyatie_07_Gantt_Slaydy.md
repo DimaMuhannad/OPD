@@ -24,12 +24,12 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-<div class="roadmap-bar">До плана — 1 неделя · до чекпоинта — 4 недели · до защиты — 9 недель</div>
+<div class="roadmap-bar">До плана — 1 неделя · до чекпоинта (контрольной точки) — 4 недели · до защиты — 9 недель</div>
 
 <div class="roadmap">
 <div class="stop"><div class="d">26.09 · 03.10</div><div class="t">Тема зафиксирована</div><div class="r">Паспорт сдан</div><div class="pts">10 баллов</div></div>
 <div class="stop here"><div class="d">31.10</div><div class="t">План собран</div><div class="r">WBS, Ганта, смета, риски</div><div class="pts">10 баллов</div></div>
-<div class="stop"><div class="d">21.11</div><div class="t">Чекпоинт</div><div class="r">Промежуточный результат</div><div class="pts">10 баллов</div></div>
+<div class="stop"><div class="d">21.11</div><div class="t">Чекпоинт (контрольная точка)</div><div class="r">Промежуточный результат</div><div class="pts">10 баллов</div></div>
 <div class="stop"><div class="d">26.12</div><div class="t">Питч-защита</div><div class="r">Результат, отчёт, защита</div><div class="pts">50 баллов</div></div>
 </div>
 <div class="tests">Два зачётных теста по 10 баллов: «Инициация» — написан, «Планирование и контроль» — 28.11. Итого 100 баллов</div>
@@ -96,7 +96,7 @@ class: v2
 <tr><td>2.1 Калибровка датчика</td><td>1</td><td></td></tr>
 <tr><td>2.2 Десять циклов полива</td><td>2</td><td></td></tr>
 <tr><td>3.1 Проба у владельцев растений</td><td>1</td><td></td></tr>
-<tr><td>4.1 Отчёт · 4.2 Презентация и питч</td><td>1 · 1</td><td></td></tr>
+<tr><td>4.1 Отчёт · 4.2 Презентация и питч (защита)</td><td>1 · 1</td><td></td></tr>
 </table>
 
 <div class="stop-work">■ СТОП · 4 МИНУТЫ — зависимости горшка</div>
@@ -126,9 +126,9 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Милстоуны
+# Милстоуны (вехи)
 
-<p>Милстоун — момент, когда виден результат. Длительности у него нет.</p>
+<p>Милстоун (веха) — момент, когда виден результат. Длительности у него нет.</p>
 
 <img src="../img/z07_gantt3.svg" class="fig" />
 
@@ -164,7 +164,7 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Буфер
+# Буфер (резерв времени)
 
 <p>Один буфер ставят в конце критического пути.</p>
 
@@ -185,7 +185,7 @@ class: v2
 <li><b>15 мин.</b> Расставьте пакеты по неделям, найдите критический путь и заштрихуйте его</li>
 <li><b>10 мин.</b> Проверьте нагрузку по людям и отсчитайте срок назад от защиты</li>
 </ol>
-<div class="note">Берите WBS с оценками и ответственными. Бланк с сеткой недель или своя таблица — на ваш выбор.</div>
+<div class="note">Берите WBS (иерархическую структуру работ) с оценками и ответственными. Бланк с сеткой недель или своя таблица — на ваш выбор.</div>
 </div>
 <img src="../img/z07_sheet.svg" class="fig" />
 </div>

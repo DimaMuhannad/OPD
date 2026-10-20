@@ -48,7 +48,9 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Что не так с этим графиком умного горшка?
+# Найдите ошибку в графике
+
+<p>Что не так с этим графиком умного горшка?</p>
 
 <img src="../img/z07_hook.svg" class="fig" />
 
@@ -56,7 +58,7 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Диаграмма Ганта отвечает на вопрос «когда»: в каком порядке и за какой срок
+# Диаграмма Ганта
 
 <div class="card dark">Диаграмма Ганта — столбчатая диаграмма расписания: каждая работа показана отрезком на шкале времени, длина отрезка равна длительности.</div>
 <p class="src">PMBOK Guide, PMI</p>
@@ -69,7 +71,9 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Работа ждёт другую, когда без её результата не начать
+# Зависимость между работами
+
+<p>Работа ждёт другую, когда без её результата не начать.</p>
 
 <img src="../img/z07_dep.svg" class="fig" />
 
@@ -79,7 +83,9 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Сначала зависимости: что должно быть готово до начала каждого пакета
+# Зависимости пакетов умного горшка
+
+<p>Что должно быть готово до начала каждого пакета?</p>
 
 <table class="contour">
 <tr><th>Пакет</th><th class="w22">Недель</th><th class="w45">Зависит от</th></tr>
@@ -99,7 +105,9 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Пакеты встают слева направо: старт — после самого позднего предшественника
+# Расстановка пакетов по неделям
+
+<p>Пакет стартует после самого позднего предшественника.</p>
 
 <img src="../img/z07_gantt1.svg" class="fig" />
 
@@ -107,7 +115,7 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Самая длинная цепочка — критический путь, он задаёт срок проекта
+# Критический путь
 
 <div class="card dark">Критический путь — самая длинная по времени последовательность связанных работ от начала проекта до его окончания. Она определяет минимально возможный срок.</div>
 <p class="src">PMBOK Guide, PMI</p>
@@ -118,7 +126,9 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Милстоун — момент, когда виден результат; длительности у него нет
+# Милстоуны
+
+<p>Милстоун — момент, когда виден результат. Длительности у него нет.</p>
 
 <img src="../img/z07_gantt3.svg" class="fig" />
 
@@ -126,7 +136,9 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Диаграмма не знает, что технический эксперт один
+# Нагрузка по людям
+
+<p>Диаграмма не знает, что технический эксперт один.</p>
 
 <img src="../img/z07_people.svg" class="fig" />
 
@@ -136,7 +148,9 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Если срок не помещается до защиты, у команды три рычага
+# Рычаги при нехватке срока
+
+<p>Если срок не помещается до защиты, у команды три рычага.</p>
 
 | Рычаг | Что делаем | Чем платим |
 |---|---|---|
@@ -150,7 +164,9 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Буфер ставят один, в конце критического пути
+# Буфер
+
+<p>Один буфер ставят в конце критического пути.</p>
 
 <img src="../img/z07_buffer.svg" class="fig" />
 
@@ -160,7 +176,7 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Постройте диаграмму Ганта своего проекта
+# Практика: диаграмма Ганта своего проекта
 
 <div class="cols">
 <div>
@@ -180,7 +196,9 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# Проверьте диаграмму соседней команды по четырём вопросам
+# Проверка диаграммы соседней команды
+
+<p>Четыре вопроса.</p>
 
 1. Каждый пакет из WBS есть в диаграмме, и лишних нет?
 2. У каждого зависимого пакета записан предшественник, и без него начать действительно нельзя?
@@ -195,7 +213,7 @@ class: v2
 
 <img src="../../tools/marp/guap-brand/guap-logo-compact.png" class="guap-logo" />
 
-# К следующему занятию — риски и потребности для каждого пакета
+# Домашнее задание: риски и потребности пакетов
 
 <div class="cols">
 <div>

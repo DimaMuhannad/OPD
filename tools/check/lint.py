@@ -66,8 +66,8 @@ def check_deck(p):
             add("ОШИБКА", p, i, "style= вырезается санитайзером Marp — нужен класс в theme.css", s)
         if s.startswith("# ") and re.search(r"\bне [^,]{2,40}, а\b", low):
             add("ВНИМАНИЕ", p, i, "афоризм «не А, а Б» в заголовке", s)
-        if s.startswith("# ") and len(s) > 95:
-            add("ВНИМАНИЕ", p, i, f"длинный заголовок ({len(s) - 2} знаков) — проверить перенос", s)
+        if s.startswith("# ") and "lead" not in text[: text.find(s)].rsplit("---", 1)[-1] and (len(s) > 62 or "?" in s):
+            add("ВНИМАНИЕ", p, i, "заголовок — название слайда, без вопроса и длинной фразы (20.10); вывод и вопрос — строкой под ним", s)
     for m in re.finditer(r"[^\n]\n---\n", text):
         ln = text[: m.start()].count("\n") + 2
         if ln > 8:

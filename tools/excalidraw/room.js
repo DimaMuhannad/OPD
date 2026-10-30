@@ -28,7 +28,7 @@ async function show(p, elements, png) {
   const scene = JSON.parse(fs.readFileSync(scenePath, "utf8"));
   fs.mkdirSync(outDir, { recursive: true });
   const b = await chromium.launch({ executablePath: EXE });
-  const p = await (await b.newContext({ viewport: { width: 1600, height: 1000 } })).newPage();
+  const p = await (await b.newContext({ viewport: { width: 1600, height: 1250 } })).newPage();
   await p.goto("https://excalidraw.com", { waitUntil: "load", timeout: 60000 });
   await p.waitForTimeout(3000);
   if (byZones) {

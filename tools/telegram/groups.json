@@ -2,5 +2,6 @@
   "m631k": {"title": "м631к Основы проектной деятельности (1 курс, ОПДВП)", "chat_id": -1003920021945,
             "topics": {"obyavleniya": 1, "materialy": 25, "domashnee_zadanie": 6, "literatura": 3}},
   "m531":  {"title": "м531 Основы проектной деятельности (2 курс, ОПД)", "chat_id": -1003944197367,
-            "topics": {"obyavleniya": 1, "materialy": 25, "domashnee_zadanie": 23, "literatura": 17}}
+            "topics": {"obyavleniya": 1, "materialy": 25, "domashnee_zadanie": 23, "literatura": 17},
+            "teams": {"VLESS": 137, "Мусорщики": 85, "Eco-orbit": 97, "Lipton": 96, "ДЕД": 101, "Ультрафиолетовая катастрофа": 98}}
 }

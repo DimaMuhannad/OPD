@@ -20,14 +20,16 @@
 
 ## м531 (созданы 30.10, доска с числами в зоне 4 и шестью стыками в зоне 6)
 
-Название команды впишите в шапку доски.
+Название команды впишите в шапку доски. Комнаты закреплены за командами 31.10
+(тема команды в Telegram-группе — номер в `tools/telegram/groups.json`).
 
-| Комната | Ссылка на доску |
-| --- | --- |
-| 1 | https://excalidraw.com/#room=abd158e731857b8c0b02,9vzfwV41xXs5HRBexLXqsA |
-| 2 | https://excalidraw.com/#room=7e4921c7ec2cb5160cd0,B_KExyAuzgb6wdoy4vidmw |
-| 3 | https://excalidraw.com/#room=1f22f6cf952e303765c5,CWbiO9tQu7jVCmJqEzIYFw |
-| 4 | https://excalidraw.com/#room=9857833f481c7366aa0c,OyWCXcjWa2-07jtu8-8LWw |
-| 5 | https://excalidraw.com/#room=99a22693c471108ed858,EsBrKzuq7TcxdWauG56w6g |
+| Комната | Команда | Ссылка на доску |
+| --- | --- | --- |
+| 1 | Мусорщики | https://excalidraw.com/#room=abd158e731857b8c0b02,9vzfwV41xXs5HRBexLXqsA |
+| 2 | Lipton | https://excalidraw.com/#room=7e4921c7ec2cb5160cd0,B_KExyAuzgb6wdoy4vidmw |
+| 3 | Eco-orbit | https://excalidraw.com/#room=1f22f6cf952e303765c5,CWbiO9tQu7jVCmJqEzIYFw |
+| 4 | Ультрафиолетовая катастрофа | https://excalidraw.com/#room=9857833f481c7366aa0c,OyWCXcjWa2-07jtu8-8LWw |
+| 5 | ДЕД | https://excalidraw.com/#room=99a22693c471108ed858,EsBrKzuq7TcxdWauG56w6g |
+| 6 | VLESS | https://excalidraw.com/#room=8513f3c3b04eb6f4e645,KDOTgz2dyA0nTmMNy5Kb_A |
 
 Пробная комната преподавателя (с примерами, не раздавать): https://excalidraw.com/#room=6ce9beec980c7ecc3872,V0lXkpNfhLxRmPUiP6AC9w

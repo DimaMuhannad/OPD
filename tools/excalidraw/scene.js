@@ -1,7 +1,9 @@
 // Хелперы для сцен Excalidraw: прямоугольники, текст, стикеры с текстом внутри.
 // Сцена — массив элементов; Excalidraw дополняет недостающие поля при загрузке.
-let n = 0;
-const uid = (p) => `${p}${++n}`;
+let n = 0, pfx = "";
+// префикс id: у сцен разных занятий id не должны совпадать (иначе при замене зон в живой комнате элементы затирают друг друга)
+const setPrefix = (p) => { pfx = p; };
+const uid = (p) => `${pfx}${p}${++n}`;
 const FONT = 6; // Nunito: есть кириллица
 const base = (o) => ({
   angle: 0, strokeColor: "#1e1e1e", backgroundColor: "transparent", fillStyle: "solid",
@@ -31,6 +33,9 @@ function rect(x, y, w, h, o = {}) {
   r.boundElements = [{ type: "text", id: t.id }];
   return [r, t];
 }
-const sticker = (x, y, label = "", o = {}) =>
-  rect(x, y, 220, 120, { backgroundColor: "#fff3bf", strokeColor: "#f08c00", label: label || " ", size: 17, ...o });
-module.exports = { text, rect, sticker };
+// width/height в o — размер стикера; передаём их в rect явно, чтобы текст внутри получил ту же ширину
+const sticker = (x, y, label = "", o = {}) => {
+  const { width = 220, height = 120, ...rest } = o;
+  return rect(x, y, width, height, { backgroundColor: "#fff3bf", strokeColor: "#f08c00", label: label || " ", size: 17, ...rest });
+};
+module.exports = { text, rect, sticker, setPrefix };
